@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ivory: #F5F0EB;
+  --color-nude: #EDE6DC;
+  --color-mocha: #9A8E82;
+  --color-blue-accent: #b4cbe6;
+  --color-navy: #b4cbe6;
+  --color-charcoal: #111111;
+}
+
+@layer base {
+  html {
+    font-family: 'Henderson Sans Basic', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: var(--color-navy);
+    color: white;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-ivory); }
+  ::-webkit-scrollbar-thumb { background: var(--color-mocha); border-radius: 2px; }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #b4cbe6;
+    color: #111111;
+    @apply px-8 py-3.5 rounded-full text-xs tracking-widest uppercase font-medium
+           transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-secondary {
+    @apply border border-charcoal text-charcoal px-8 py-3.5 rounded-full text-xs tracking-widest uppercase font-medium
+           hover:bg-charcoal hover:text-ivory transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-charcoal text-xs tracking-widest uppercase font-medium
+           hover:text-blue-accent transition-colors duration-200 inline-flex items-center gap-2 underline underline-offset-4;
+  }
+
+  .section-padding {
+    @apply px-5 md:px-10 lg:px-16 xl:px-24;
+  }
+
+  .section-py {
+    @apply py-14 md:py-20 lg:py-28;
+  }
+
+  .label-text {
+    @apply text-xs tracking-widest uppercase text-mocha font-medium;
+  }
+
+  .section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-normal uppercase leading-tight;
+    letter-spacing: 0.12em;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .pause-on-hover:hover { animation-play-state: paused; }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
