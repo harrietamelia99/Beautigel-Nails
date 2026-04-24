@@ -32,6 +32,59 @@ const CALLOUTS = [
   },
 ]
 
+const ROWS = [
+  {
+    attribute: 'Wear Time',
+    beautigel: 'Up to 4 weeks',
+    nonUV: '1–2 weeks',
+    salon: '2–3 weeks',
+  },
+  {
+    attribute: 'Application Time',
+    beautigel: '20–30 min at home',
+    nonUV: '10–15 min at home',
+    salon: '60–90 min in salon',
+  },
+  {
+    attribute: 'Finish',
+    beautigel: 'High-gloss, chip-resistant',
+    nonUV: 'Softer, less durable',
+    salon: 'High-gloss',
+  },
+  {
+    attribute: 'Nail Protection',
+    beautigel: 'Hard shell supports natural nail',
+    nonUV: 'Minimal protective layer',
+    salon: 'None — applied direct',
+  },
+  {
+    attribute: 'Post-Acrylic Suitability',
+    beautigel: 'Ideal',
+    nonUV: 'Limited',
+    salon: 'Not recommended',
+  },
+  {
+    attribute: 'Removal',
+    beautigel: 'Gentle peel',
+    nonUV: 'Gentle peel',
+    salon: 'Acetone soak',
+  },
+  {
+    attribute: 'At-Home Friendly',
+    beautigel: 'Yes',
+    nonUV: 'Yes',
+    salon: 'No',
+  },
+]
+
+function Check() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  )
+}
+
 export function WhyUVGel() {
   return (
     <section className="section-py section-padding bg-nude/40 border-t border-nude/60">
@@ -64,6 +117,80 @@ export function WhyUVGel() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Comparison table */}
+        <div className="mb-12 md:mb-16">
+          <div className="text-center mb-8">
+            <p className="label-text mb-2">How Do We Compare</p>
+            <h3 className="section-heading text-xl md:text-2xl text-charcoal">
+              See the Difference for Yourself.
+            </h3>
+          </div>
+
+          {/* Desktop table */}
+          <div className="hidden md:block rounded-2xl overflow-hidden border border-nude">
+            {/* Header row */}
+            <div className="grid grid-cols-4 bg-white border-b border-nude">
+              <div className="p-5" />
+              <div className="p-5 text-center border-l border-nude" style={{ backgroundColor: '#b4cbe6' }}>
+                <p className="section-heading text-sm text-charcoal">Beautigel</p>
+                <p className="text-[10px] tracking-widest uppercase text-charcoal/60 mt-1">UV-Cured Gel Wraps</p>
+              </div>
+              <div className="p-5 text-center border-l border-nude bg-white">
+                <p className="text-[10px] tracking-widest uppercase text-mocha font-semibold">Non-UV Gel Wraps</p>
+              </div>
+              <div className="p-5 text-center border-l border-nude bg-white">
+                <p className="text-[10px] tracking-widest uppercase text-mocha font-semibold">Traditional Salon Gel</p>
+              </div>
+            </div>
+
+            {/* Data rows */}
+            {ROWS.map((row, i) => (
+              <div
+                key={row.attribute}
+                className={`grid grid-cols-4 border-b border-nude last:border-b-0 ${i % 2 === 0 ? 'bg-white' : 'bg-ivory/60'}`}
+              >
+                <div className="p-4 pl-5 flex items-center">
+                  <span className="text-xs text-charcoal font-medium tracking-wide">{row.attribute}</span>
+                </div>
+                <div className="p-4 flex items-center justify-center border-l border-nude" style={{ backgroundColor: i % 2 === 0 ? '#b4cbe620' : '#b4cbe615' }}>
+                  <span className="text-xs text-charcoal font-medium text-center">{row.beautigel}</span>
+                </div>
+                <div className="p-4 flex items-center justify-center border-l border-nude">
+                  <span className="text-xs text-mocha text-center">{row.nonUV}</span>
+                </div>
+                <div className="p-4 flex items-center justify-center border-l border-nude">
+                  <span className="text-xs text-mocha text-center">{row.salon}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile cards */}
+          <div className="md:hidden space-y-3">
+            {ROWS.map((row) => (
+              <div key={row.attribute} className="bg-white border border-nude rounded-2xl overflow-hidden">
+                <div className="px-4 py-3 border-b border-nude bg-ivory/60">
+                  <p className="text-[10px] tracking-widest uppercase text-charcoal font-semibold">{row.attribute}</p>
+                </div>
+                <div className="divide-y divide-nude">
+                  <div className="px-4 py-3 flex items-center justify-between gap-4" style={{ backgroundColor: '#b4cbe615' }}>
+                    <span className="text-[10px] tracking-widest uppercase text-charcoal/50 shrink-0">Beautigel</span>
+                    <span className="text-xs text-charcoal font-medium text-right">{row.beautigel}</span>
+                  </div>
+                  <div className="px-4 py-3 flex items-center justify-between gap-4">
+                    <span className="text-[10px] tracking-widest uppercase text-mocha/60 shrink-0">Non-UV Wraps</span>
+                    <span className="text-xs text-mocha text-right">{row.nonUV}</span>
+                  </div>
+                  <div className="px-4 py-3 flex items-center justify-between gap-4">
+                    <span className="text-[10px] tracking-widest uppercase text-mocha/60 shrink-0">Salon Gel</span>
+                    <span className="text-xs text-mocha text-right">{row.salon}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Editorial body — two columns */}
