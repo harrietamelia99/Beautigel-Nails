@@ -2,6 +2,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { PressBar } from '@/components/sections/PressBar'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { FeaturedKit } from '@/components/sections/FeaturedKit'
+import { WhyUVGel } from '@/components/sections/WhyUVGel'
 import { BrandStory } from '@/components/sections/BrandStory'
 import { InstagramGrid } from '@/components/sections/InstagramGrid'
 import { EmailSignup } from '@/components/sections/EmailSignup'
@@ -33,6 +34,7 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <WhyUVGel />
       <BrandStory />
       <PressBar />
       <InstagramGrid />
