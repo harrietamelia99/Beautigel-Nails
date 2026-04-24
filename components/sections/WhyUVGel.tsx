@@ -18,7 +18,7 @@ const CALLOUTS = [
     ),
     stat: 'Protective',
     label: 'Shell Over Your Natural Nail',
-    body: 'The hardened layer acts as a shield — ideal for nails recovering from acrylics or damage.',
+    body: 'The hardened layer acts as a shield, ideal for nails recovering from acrylics or damage.',
   },
   {
     icon: (
@@ -45,7 +45,7 @@ export function WhyUVGel() {
           </h2>
           <p className="text-mocha text-sm md:text-base leading-relaxed max-w-xl mx-auto">
             UV-cured gel wraps are a deliberate choice, not a compromise. Where others are moving
-            away from curing, we are doubling down — because the science backs it, and our
+            away from curing, we are doubling down. Because the science backs it, and our
             customers feel the difference.
           </p>
         </div>
@@ -74,7 +74,7 @@ export function WhyUVGel() {
               Built for Post-Acrylic Nails.
             </h3>
             <p className="text-mocha text-sm leading-relaxed mb-3">
-              If you have spent years in acrylics, you know what they leave behind — thin, fragile
+              If you have spent years in acrylics, you know what they leave behind: thin, fragile
               nails that break before they can grow. Our UV-cured wraps sit over the natural nail
               as a protective shell, letting it breathe and grow out underneath while still looking
               polished.
@@ -90,13 +90,13 @@ export function WhyUVGel() {
               Strength You Can See and Feel.
             </h3>
             <p className="text-mocha text-sm leading-relaxed mb-3">
-              When gel is exposed to UV light, it undergoes photopolymerisation — the molecules
+              When gel is exposed to UV light, it undergoes photopolymerisation. The molecules
               link together to form a solid, durable layer. This is fundamentally different to a
               wrap that simply dries or self-adheres.
             </p>
             <p className="text-mocha text-sm leading-relaxed">
               The result is a finish that holds its shape, resists chipping, and stays flexible
-              enough to move with your nail — for up to four weeks with correct application.
+              enough to move with your nail, lasting up to four weeks with correct application.
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function WhyUVGel() {
           </div>
           <p className="text-mocha text-xs leading-relaxed">
             <span className="text-charcoal font-semibold">A note on UV lamps. </span>
-            Our lamps emit low-level UV light for a short, controlled curing cycle — typically
+            Our lamps emit low-level UV light for a short, controlled curing cycle, typically
             60 seconds per coat. When used as directed, they are considered safe for regular home
             use. As with any UV exposure, we recommend keeping the lamp away from eyes during
             curing.
