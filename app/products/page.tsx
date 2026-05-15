@@ -26,6 +26,10 @@ export default async function ProductsPage() {
         </div>
 
         <ProductGrid products={products} showFilters />
+
+        <p className="text-center text-mocha/50 text-xs italic mt-10">
+          More products to be added once layout and content is confirmed.
+        </p>
       </div>
     </div>
   )
