@@ -309,11 +309,12 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
             </div>
 
             {/* Trust strip */}
-            <div className="grid grid-cols-3 gap-2 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8">
               {[
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill={BLUE}><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zm-.5 1.5l1.96 2.5H17V9.5h2.5zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2.22-3c-.55-.61-1.33-1-2.22-1s-1.67.39-2.22 1H3V6h12v9H8.22zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>, label: 'Free UK shipping over £35' },
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill={BLUE}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, label: 'Secure checkout' },
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill={BLUE}><path d="M19 7H5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 11H5V9h14v9zM1 5h22v2H1zM3 3h18v2H3z"/></svg>, label: 'Easy returns' },
+                { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill={BLUE}><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke={BLUE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>, label: '30-day money back' },
               ].map((t) => (
                 <div key={t.label} className="flex flex-col items-center text-center gap-1.5 bg-nude/50 rounded-2xl p-3">
                   {t.icon}

@@ -227,6 +227,7 @@ export default function CartPage() {
                   { icon: <svg width="13" height="13" viewBox="0 0 24 24" fill={BLUE}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, text: 'Secure checkout' },
                   { icon: <svg width="13" height="13" viewBox="0 0 24 24" fill={BLUE}><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z"/></svg>, text: 'Free UK shipping over £35' },
                   { icon: <svg width="13" height="13" viewBox="0 0 24 24" fill={BLUE}><path d="M19 7H5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 11H5V9h14v9zM1 5h22v2H1z"/></svg>, text: 'Easy returns within 14 days' },
+                  { icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>, text: '30-day money back guarantee' },
                 ].map((t) => (
                   <div key={t.text} className="flex items-center gap-2.5">
                     {t.icon}
