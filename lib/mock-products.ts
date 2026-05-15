@@ -122,4 +122,13 @@ export const MOCK_PRODUCTS: Product[] = [
     null,
     ['gel-wraps', 'nail-art'],
   ),
+  makeProduct(
+    'cuticle-oil',
+    'Nourishing Cuticle Oil',
+    '[TBC]',
+    'Cuticle Oil',
+    '/products/starter-kit.png',
+    null,
+    ['cuticle-oil', 'nail-care'],
+  ),
 ]
