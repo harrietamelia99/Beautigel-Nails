@@ -145,7 +145,7 @@ export function WhyUVGel() {
                     <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
                     <polyline points="21 15 16 10 5 21"/>
                   </svg>
-                  <p className="text-[9px] tracking-widest uppercase text-mocha/40">Kiana to provide image</p>
+                  <span className="bg-amber-50 border border-amber-300 text-amber-700 text-[9px] font-medium px-2 py-1 rounded-full">Kiana to provide image</span>
                 </div>
               </div>
               {/* Non-UV image */}
@@ -155,7 +155,7 @@ export function WhyUVGel() {
                     <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
                     <polyline points="21 15 16 10 5 21"/>
                   </svg>
-                  <p className="text-[9px] tracking-widest uppercase text-mocha/30">Kiana to provide image</p>
+                  <span className="bg-amber-50 border border-amber-300 text-amber-700 text-[9px] font-medium px-2 py-1 rounded-full">Kiana to provide image</span>
                 </div>
               </div>
               {/* Salon image */}
@@ -165,7 +165,7 @@ export function WhyUVGel() {
                     <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
                     <polyline points="21 15 16 10 5 21"/>
                   </svg>
-                  <p className="text-[9px] tracking-widest uppercase text-mocha/30">Kiana to provide image</p>
+                  <span className="bg-amber-50 border border-amber-300 text-amber-700 text-[9px] font-medium px-2 py-1 rounded-full">Kiana to provide image</span>
                 </div>
               </div>
             </div>

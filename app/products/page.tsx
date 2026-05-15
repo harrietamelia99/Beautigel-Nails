@@ -27,8 +27,10 @@ export default async function ProductsPage() {
 
         <ProductGrid products={products} showFilters />
 
-        <p className="text-center text-mocha/50 text-xs italic mt-10">
-          More products to be added once layout and content is confirmed.
+        <p className="text-center mt-10">
+          <span className="inline-block bg-amber-50 border border-amber-300 text-amber-700 text-xs font-medium px-4 py-2 rounded-full">
+            More products to be added once layout and content is confirmed.
+          </span>
         </p>
       </div>
     </div>

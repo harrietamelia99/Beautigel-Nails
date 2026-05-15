@@ -403,7 +403,11 @@ export default function SubscribePage() {
                   )
                 })}
               </div>
-              <p className="text-[10px] text-mocha/50 italic mt-3">More colours to be added soon.</p>
+              <p className="mt-3">
+                <span className="inline-block bg-amber-50 border border-amber-300 text-amber-700 text-xs font-medium px-3 py-1.5 rounded-full">
+                  More colours to be added soon.
+                </span>
+              </p>
             </div>
 
             {/* CTA */}
