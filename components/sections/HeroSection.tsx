@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const HERO_IMAGES = {
-  left: { src: '/lifestyle/model-blue-nails.png', alt: 'Model with Beautigel light blue gel nail wraps' },
+  left: { src: '/hero-nails.png', alt: 'Beautigel gel nail wraps on hands with gold rings' },
   right: { src: '/hero-boxes.png', alt: 'Beautigel Nails London branded packaging boxes in Paris' },
 }
 
