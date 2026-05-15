@@ -333,6 +333,26 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
               <Accordion title="How to Apply">
                 <p>Prep nails — push back cuticles, lightly buff and wipe with an alcohol pad. Select the closest-fitting wrap, peel and apply from the cuticle outward. Cure under your UV lamp for 60–90 seconds. File off any excess at the tip. <Link href="/how-to" className="text-charcoal underline underline-offset-2">See the full guide →</Link></p>
               </Accordion>
+              {product.productType === 'Gel Wraps' && (
+                <Accordion title="Ingredients">
+                  <div className="space-y-3">
+                    <p className="text-mocha text-xs leading-relaxed">
+                      Polyacrylic Acid, Acrylates Copolymer, Glycerine Propoxylate Triacrylate,
+                      Isopropylthioxanthone.
+                    </p>
+                    <p className="text-mocha text-xs leading-relaxed">
+                      <span className="text-charcoal font-medium">May contain: </span>
+                      D&amp;C Red No.6 Barium Lake, D&amp;C Red No.7 Calcium Lake, FD&amp;C Yellow
+                      No.5 Aluminum Lake, D&amp;C Yellow No.10, FD&amp;C Blue No.1, Black Iron
+                      Oxide, Titanium Dioxide, Bismuth Oxychloride, Mica.
+                    </p>
+                    <p className="text-[9px] text-mocha/50 italic">
+                      Ingredient declaration correct at time of publishing. For allergen queries
+                      please contact us before purchase.
+                    </p>
+                  </div>
+                </Accordion>
+              )}
               <Accordion title="Delivery & Returns">
                 <div className="space-y-2">
                   <p><strong className="text-charcoal font-medium">UK Standard:</strong> 2–5 business days. Free over £35.</p>
