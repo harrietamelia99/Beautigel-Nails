@@ -10,14 +10,24 @@ const BLUE = '#b4cbe6'
 
 const BUNDLES = [
   {
+    id: '1-set',
+    count: 1,
+    label: 'Single Set',
+    sublabel: 'Try BeautiGel',
+    price: '£17.99',
+    perSet: '£17.99 per set',
+    badge: null,
+    note: 'Perfect for first-time customers',
+  },
+  {
     id: '2-sets',
     count: 2,
     label: 'Any 2 Sets',
-    sublabel: 'Get Started',
+    sublabel: 'Most Popular',
     price: '£29.99',
     perSet: '£14.99 per set',
-    badge: null,
-    saving: null,
+    badge: 'Most Popular',
+    note: null,
   },
   {
     id: '3-sets',
@@ -27,7 +37,7 @@ const BUNDLES = [
     price: '£39.99',
     perSet: '£13.33 per set',
     badge: 'Best Value',
-    saving: 'Save £1.66/set vs 2 sets',
+    note: null,
   },
   {
     id: '4-sets',
@@ -37,7 +47,7 @@ const BUNDLES = [
     price: '£49.99',
     perSet: '£12.50 per set',
     badge: 'Ultimate Collection',
-    saving: 'Best price per set',
+    note: null,
   },
 ]
 
@@ -46,8 +56,7 @@ const WRAP_STYLES = [
   { id: 'candy-apple-red-glitter', label: 'Candy Apple Red Glitter', colour: '#B22222', image: '/products/candy-apple-red.png' },
   { id: 'cappuccino', label: 'Cappuccino', colour: '#C4A882', image: '/products/cappuccino.png' },
   { id: 'cherry-blossom', label: 'Cherry Blossom', colour: '#F4A7B9', image: '/products/cherry-blossom.png' },
-  { id: 'coffee-and-cream-ombre', label: 'Coffee & Cream Ombré', colour: '#C4956A', image: '/products/coffee-and-cream.png' },
-  { id: 'colour-pop-tips', label: 'Colour Pop Tips', colour: '#E8C4B8', image: null },
+  { id: 'coffee-and-cream-ombre', label: 'Coffee and Cream', colour: '#C4956A', image: '/products/coffee-and-cream.png' },
   { id: 'coral-glow', label: 'Coral Glow', colour: '#FF7F6E', image: null },
   { id: 'daisy-dream', label: 'Daisy Dream', colour: '#FFF0AA', image: null },
   { id: 'fine-wine-gloss', label: 'Fine Wine Gloss', colour: '#722F37', image: null },
@@ -68,54 +77,72 @@ const FRAGRANCES = [
 const FREE_GIFTS = [
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="10" r="4"/>
-        <path d="M12 14v4"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="9" r="4"/>
+        <path d="M12 13v5"/>
         <path d="M9 18h6"/>
-        <path d="M9 6.5A4 4 0 0 1 16 10"/>
+        <path d="M8 7A4 4 0 0 1 16 9"/>
       </svg>
     ),
     label: 'UV Lamp',
-    sub: 'Worth £[TBC]',
+    rrp: '£21.00',
+    sub: 'Cures in 60 seconds',
   },
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 3h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V3z"/>
         <path d="M12 10v11"/>
         <path d="M9 21h6"/>
       </svg>
     ),
     label: 'Cuticle Oil',
+    rrp: '£12.00',
     sub: 'Your choice of fragrance',
   },
   {
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="3" width="15" height="13" rx="1"/>
         <path d="m16 8 4-1v10l-4 1"/>
         <circle cx="5.5" cy="18.5" r="2.5"/>
         <circle cx="18.5" cy="18.5" r="2.5"/>
       </svg>
     ),
-    label: 'Free UK Shipping',
-    sub: 'On every order',
+    label: 'UK Shipping',
+    rrp: '£3.99',
+    sub: 'Every order',
   },
 ]
 
 const VIDEO_CLIPS = [
   { label: 'Unbox Your Kit', gradient: 'linear-gradient(135deg, #f4e8dc 0%, #e8d0c0 100%)' },
-  { label: 'Apply & Smooth', gradient: 'linear-gradient(135deg, #b4cbe6 0%, #8aafd4 100%)' },
+  { label: 'Apply and Smooth', gradient: 'linear-gradient(135deg, #b4cbe6 0%, #8aafd4 100%)' },
   { label: 'Cure Under Lamp', gradient: 'linear-gradient(135deg, #c4a8e0 0%, #b4cbe6 100%)' },
   { label: 'Finished Manicure', gradient: 'linear-gradient(135deg, #f4a7b9 0%, #e8849a 100%)' },
   { label: 'Gentle Removal', gradient: 'linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%)' },
 ]
+
+const HOW_TO = {
+  apply: [
+    { n: '1', title: 'Prep', body: 'Push back cuticles, lightly buff the nail surface and wipe clean with an alcohol pad.' },
+    { n: '2', title: 'Size and Apply', body: 'Select the closest-fitting wrap, peel and apply from the cuticle outward, pressing firmly from the centre out.' },
+    { n: '3', title: 'Cure', body: 'Cure under your UV lamp for 60 to 90 seconds per nail.' },
+    { n: '4', title: 'File and Finish', body: 'File away any excess at the tip. Your manicure is complete.' },
+  ],
+  remove: [
+    { n: '1', title: 'Loosen the Edge', body: 'Gently press an orange stick or cuticle tool beneath the edge of the wrap.' },
+    { n: '2', title: 'Peel Slowly', body: 'Peel back slowly from the cuticle end. Do not force or pull sharply.' },
+    { n: '3', title: 'Nourish', body: 'Apply cuticle oil to nourish and condition the nail after removal.' },
+  ],
+}
 
 export default function StarterKitPage() {
   const [selectedBundle, setSelectedBundle] = useState('3-sets')
   const [selectedStyles, setSelectedStyles] = useState<string[]>([])
   const [fragrance, setFragrance] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
+  const [howToTab, setHowToTab] = useState<'apply' | 'remove'>('apply')
   const { addToCart } = useCart()
 
   const activeBundle = BUNDLES.find((b) => b.id === selectedBundle)!
@@ -129,7 +156,6 @@ export default function StarterKitPage() {
     })
   }
 
-  // Reset selections when bundle changes
   const handleBundleChange = (id: string) => {
     setSelectedBundle(id)
     setSelectedStyles([])
@@ -158,16 +184,16 @@ export default function StarterKitPage() {
         </nav>
       </div>
 
-      {/* Hero */}
+      {/* Hero — two column */}
       <section className="section-padding pt-8 pb-12 md:pb-16 border-b border-nude/60">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* Image + free gifts */}
+          {/* Left: image + free gifts */}
           <div className="lg:sticky lg:top-28">
             <div className="rounded-2xl overflow-hidden mb-5">
               <Image
                 src="/products/starter-kit.png"
-                alt="Beautigel Nails Starter Collection"
+                alt="BeautiGel Nails Starter Collection"
                 width={800}
                 height={800}
                 className="w-full h-auto rounded-2xl"
@@ -175,23 +201,25 @@ export default function StarterKitPage() {
               />
             </div>
 
-            {/* Free gifts strip */}
+            {/* Free gifts */}
             <div className="bg-white border border-nude rounded-2xl p-5">
-              <p className="text-[10px] tracking-widest uppercase text-charcoal font-semibold mb-4">
-                Free with every order
+              <p className="text-[9px] tracking-widest uppercase text-charcoal font-semibold mb-5 text-center">
+                Free with every bundle order
               </p>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-4">
                 {FREE_GIFTS.map((g) => (
-                  <div key={g.label} className="flex flex-col items-center text-center gap-2">
+                  <div key={g.label} className="flex flex-col items-center text-center gap-2.5">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center"
+                      className="w-12 h-12 rounded-full flex items-center justify-center"
                       style={{ backgroundColor: BLUE }}
                     >
                       <span style={{ color: '#111' }}>{g.icon}</span>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-charcoal">{g.label}</p>
-                      <p className="text-[10px] text-mocha">{g.sub}</p>
+                      <p className="text-[10px] tracking-widest uppercase text-charcoal font-semibold">Free</p>
+                      <p className="text-xs font-medium text-charcoal mt-0.5">{g.label}</p>
+                      <p className="text-[10px] text-mocha/50 line-through">{g.rrp}</p>
+                      <p className="text-[9px] text-mocha mt-0.5 leading-snug">{g.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -199,105 +227,116 @@ export default function StarterKitPage() {
             </div>
           </div>
 
-          {/* Selector */}
+          {/* Right: selector */}
           <div>
-            <p className="label-text mb-3" style={{ color: BLUE }}>Build Your Collection</p>
+            <p className="label-text mb-2" style={{ color: BLUE }}>Build Your Collection</p>
             <h1 className="section-heading text-2xl md:text-3xl text-charcoal mb-3">
               BeautiGel Starter Collection
             </h1>
             <p className="text-mocha text-sm leading-relaxed mb-8 max-w-md">
-              Choose your bundle, pick your nail styles, and select your cuticle oil fragrance.
-              Every order includes a free UV lamp, cuticle oil and free UK shipping.
+              Choose your bundle size, select your nail styles, and pick your cuticle oil scent.
+              Free UV lamp, cuticle oil and UK shipping included with every order.
             </p>
 
-            {/* Step 1: Bundle */}
+            {/* Step 1: Bundle size */}
             <div className="mb-8">
-              <p className="label-text text-charcoal mb-4">Step 1. Choose Your Bundle</p>
-              <div className="space-y-3">
-                {BUNDLES.map((b) => (
-                  <button
-                    key={b.id}
-                    onClick={() => handleBundleChange(b.id)}
-                    className={`w-full text-left rounded-2xl border p-4 transition-all ${
-                      selectedBundle === b.id
-                        ? 'border-charcoal bg-white'
-                        : 'border-nude bg-white/60 hover:border-mocha'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        {/* Radio */}
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                          selectedBundle === b.id ? 'border-charcoal' : 'border-nude'
-                        }`}>
-                          {selectedBundle === b.id && <div className="w-2 h-2 rounded-full bg-charcoal" />}
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-bold text-sm text-charcoal uppercase tracking-wide">{b.label}</span>
-                            {b.badge && (
-                              <span
-                                className="text-[9px] px-2 py-0.5 rounded-full tracking-widest uppercase font-bold text-white"
-                                style={{ backgroundColor: b.badge === 'Best Value' ? '#b4cbe6' : '#111', color: b.badge === 'Best Value' ? '#111' : '#fff' }}
-                              >
-                                {b.badge}
-                              </span>
-                            )}
-                          </div>
-                          {b.saving && (
-                            <p className="text-[10px] text-mocha mt-0.5">{b.saving}</p>
-                          )}
-                        </div>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <p className="font-bold text-sm text-charcoal">{b.price}</p>
-                        <p className="text-[10px] text-mocha">{b.perSet}</p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
+              <p className="label-text text-charcoal mb-4">1. Choose Your Bundle</p>
+
+              {/* Bundle grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {BUNDLES.map((b) => {
+                  const isActive = selectedBundle === b.id
+                  const isBestValue = b.badge === 'Best Value'
+                  const isMostPop = b.badge === 'Most Popular'
+                  return (
+                    <button
+                      key={b.id}
+                      onClick={() => handleBundleChange(b.id)}
+                      className={`relative text-left rounded-2xl border p-4 transition-all ${
+                        isActive
+                          ? 'border-charcoal bg-white shadow-sm'
+                          : 'border-nude bg-white/60 hover:border-mocha/60'
+                      }`}
+                    >
+                      {b.badge && (
+                        <span
+                          className="absolute -top-2.5 left-3 text-[8px] px-2.5 py-0.5 rounded-full tracking-widest uppercase font-bold"
+                          style={{
+                            backgroundColor: isBestValue ? BLUE : isMostPop ? '#111' : '#d4c5b0',
+                            color: isBestValue ? '#111' : '#fff',
+                          }}
+                        >
+                          {b.badge}
+                        </span>
+                      )}
+                      <p className="text-sm font-semibold text-charcoal mb-0.5 mt-1">{b.label}</p>
+                      <p className="text-xl font-light text-charcoal mb-1">{b.price}</p>
+                      <p className="text-[10px] text-mocha tracking-wide">{b.perSet}</p>
+                      {b.note && (
+                        <p className="text-[9px] text-mocha/60 mt-1 italic">{b.note}</p>
+                      )}
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Step 2: Wrap styles */}
+            {/* Step 2: Choose designs — dashed slot boxes */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
                 <p className="label-text text-charcoal">
-                  Step 2. Choose {requiredCount} Nail {requiredCount === 1 ? 'Style' : 'Styles'}
+                  2. Choose {requiredCount} Nail {requiredCount === 1 ? 'Style' : 'Styles'}
                 </p>
-                <span className="text-[10px] tracking-widest uppercase font-medium" style={{ color: selectedStyles.length === requiredCount ? '#111' : BLUE }}>
-                  {selectedStyles.length} / {requiredCount} selected
+                <span
+                  className="text-[10px] tracking-widest uppercase font-medium"
+                  style={{ color: selectedStyles.length === requiredCount ? '#111' : BLUE }}
+                >
+                  {selectedStyles.length} / {requiredCount}
                 </span>
               </div>
 
-              {/* Selected previews */}
-              {selectedStyles.length > 0 && (
-                <div className="flex gap-2 mb-4">
-                  {selectedStyles.map((id) => {
-                    const style = WRAP_STYLES.find((s) => s.id === id)!
-                    return (
-                      <div key={id} className="flex flex-col items-center gap-1">
-                        <div
-                          className="w-12 h-12 rounded-full border-2 border-charcoal overflow-hidden"
-                          style={{ backgroundColor: style.colour }}
-                        >
-                          {style.image && (
-                            <Image src={style.image} alt={style.label} width={48} height={48} className="w-full h-full object-cover" />
-                          )}
-                        </div>
-                        <p className="text-[8px] text-mocha text-center max-w-[48px] leading-tight">{style.label}</p>
+              {/* Design slots */}
+              <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+                {Array.from({ length: requiredCount }).map((_, i) => {
+                  const id = selectedStyles[i]
+                  const style = id ? WRAP_STYLES.find((s) => s.id === id) : null
+                  return (
+                    <div
+                      key={i}
+                      className={`shrink-0 w-16 flex flex-col items-center gap-1.5 ${style ? '' : 'opacity-80'}`}
+                    >
+                      <div
+                        className={`w-16 h-16 rounded-2xl border-2 flex items-center justify-center overflow-hidden transition-all ${
+                          style
+                            ? 'border-charcoal'
+                            : 'border-dashed border-nude/60'
+                        }`}
+                        style={style ? { backgroundColor: style.colour } : {}}
+                      >
+                        {style?.image ? (
+                          <Image
+                            src={style.image}
+                            alt={style.label}
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : style ? (
+                          <div className="w-full h-full" style={{ backgroundColor: style.colour }} />
+                        ) : (
+                          <span className="text-nude text-xl font-light">+</span>
+                        )}
                       </div>
-                    )
-                  })}
-                  {Array.from({ length: requiredCount - selectedStyles.length }).map((_, i) => (
-                    <div key={`empty-${i}`} className="w-12 h-12 rounded-full border-2 border-dashed border-nude flex items-center justify-center">
-                      <span className="text-nude text-lg">+</span>
+                      <p className="text-[8px] text-mocha text-center leading-tight max-w-[60px]">
+                        {style ? style.label : `Design ${i + 1}`}
+                      </p>
                     </div>
-                  ))}
-                </div>
-              )}
+                  )
+                })}
+              </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {/* Style picker grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto pr-1">
                 {WRAP_STYLES.map((style) => {
                   const isSelected = selectedStyles.includes(style.id)
                   const isDisabled = !isSelected && selectedStyles.length >= requiredCount
@@ -306,21 +345,23 @@ export default function StarterKitPage() {
                       key={style.id}
                       onClick={() => toggleStyle(style.id)}
                       disabled={isDisabled}
-                      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-2xl border text-xs tracking-wide transition-all text-left ${
+                      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs tracking-wide transition-all text-left ${
                         isSelected
-                          ? 'border-charcoal bg-white'
+                          ? 'border-charcoal bg-white shadow-sm'
                           : isDisabled
-                          ? 'border-nude/40 text-mocha/40 cursor-not-allowed bg-white/40'
+                          ? 'border-nude/30 text-mocha/30 cursor-not-allowed bg-white/30'
                           : 'border-nude text-mocha hover:border-charcoal hover:text-charcoal bg-white'
                       }`}
                     >
                       <div
-                        className={`w-5 h-5 rounded-full shrink-0 border ${isSelected ? 'border-charcoal' : 'border-mocha/20'}`}
+                        className={`w-4 h-4 rounded-full shrink-0 border ${isSelected ? 'border-charcoal' : 'border-mocha/20'}`}
                         style={{ backgroundColor: style.colour }}
                       />
-                      <span className={isSelected ? 'text-charcoal font-medium' : ''}>{style.label}</span>
+                      <span className={`truncate ${isSelected ? 'text-charcoal font-medium' : ''}`}>
+                        {style.label}
+                      </span>
                       {isSelected && (
-                        <svg className="ml-auto shrink-0" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg className="ml-auto shrink-0" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       )}
@@ -330,9 +371,9 @@ export default function StarterKitPage() {
               </div>
             </div>
 
-            {/* Step 3: Fragrance */}
+            {/* Step 3: Fragrance — only for bundles (not single set) */}
             <div className="mb-10">
-              <p className="label-text text-charcoal mb-4">Step 3. Cuticle Oil Fragrance</p>
+              <p className="label-text text-charcoal mb-4">3. Cuticle Oil Fragrance</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {FRAGRANCES.map((f) => (
                   <button
@@ -345,7 +386,7 @@ export default function StarterKitPage() {
                     }`}
                   >
                     <span
-                      className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full opacity-60"
+                      className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full opacity-70"
                       style={{ backgroundColor: f.colour }}
                     />
                     {f.label}
@@ -358,7 +399,7 @@ export default function StarterKitPage() {
             {!isComplete && (
               <p className="text-mocha text-xs mb-3 tracking-wide">
                 {selectedStyles.length < requiredCount
-                  ? `Choose ${requiredCount - selectedStyles.length} more nail ${requiredCount - selectedStyles.length === 1 ? 'style' : 'styles'}`
+                  ? `Choose ${requiredCount - selectedStyles.length} more nail ${requiredCount - selectedStyles.length === 1 ? 'style' : 'styles'} to continue`
                   : !fragrance
                   ? 'Select a cuticle oil fragrance to continue'
                   : ''}
@@ -376,8 +417,14 @@ export default function StarterKitPage() {
                 : 'Complete Your Selections'}
             </button>
 
-            <p className="text-mocha text-xs text-center mt-4">
-              Free UV lamp, cuticle oil and UK shipping included with every order.
+            {/* In stock indicator */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
+              <p className="text-mocha text-xs tracking-wide">In stock and ready to ship</p>
+            </div>
+
+            <p className="text-mocha text-[10px] text-center mt-3 tracking-wide">
+              Free UV lamp (worth £21) · cuticle oil (worth £12) · UK shipping included
             </p>
           </div>
         </div>
@@ -394,8 +441,57 @@ export default function StarterKitPage() {
         </div>
       </section>
 
-      {/* Value comparison strip */}
-      <section className="section-padding py-12 md:py-16 bg-nude/30 border-b border-nude/60">
+      {/* How to apply / remove tabs */}
+      <section className="section-padding py-14 md:py-20 border-b border-nude/60">
+        <div className="max-w-4xl mx-auto">
+          {/* Tab header */}
+          <div className="flex items-center gap-8 mb-10 border-b border-nude">
+            {(['apply', 'remove'] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setHowToTab(tab)}
+                className={`pb-3 text-sm tracking-widest uppercase font-semibold transition-colors relative ${
+                  howToTab === tab
+                    ? 'text-charcoal after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[2px] after:bg-charcoal'
+                    : 'text-mocha hover:text-charcoal'
+                }`}
+              >
+                How to {tab === 'apply' ? 'Apply' : 'Remove'}
+              </button>
+            ))}
+          </div>
+
+          {/* Steps */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {HOW_TO[howToTab].map((step) => (
+              <div key={step.n} className="flex gap-4">
+                <div
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5"
+                  style={{ backgroundColor: BLUE, color: '#111' }}
+                >
+                  {step.n}
+                </div>
+                <div>
+                  <p className="section-heading text-sm text-charcoal mb-1">{step.title}</p>
+                  <p className="text-mocha text-xs leading-relaxed">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/how-to"
+              className="text-xs tracking-widest uppercase text-charcoal underline underline-offset-4 hover:opacity-60 transition-opacity"
+            >
+              See the Full Application Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What is in your box */}
+      <section className="section-padding py-14 md:py-16 bg-nude/30 border-b border-nude/60">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="label-text mb-2">Everything Included</p>
@@ -406,9 +502,9 @@ export default function StarterKitPage() {
               {
                 label: 'Gel Nail Wrap Sets',
                 detail: 'Your choice of style · 16 wraps per kit',
-                note: '2, 3 or 4 sets depending on your bundle',
+                note: '1, 2, 3 or 4 sets depending on your bundle',
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="3"/>
                     <line x1="3" y1="9" x2="21" y2="9"/>
                     <line x1="9" y1="3" x2="9" y2="9"/>
@@ -419,22 +515,22 @@ export default function StarterKitPage() {
               {
                 label: 'UV Lamp',
                 detail: 'Cures in 60 seconds per coat',
-                note: 'Compact, plug-in, reusable',
+                note: 'Compact, plug-in, reusable · worth £21',
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="10" r="4"/>
-                    <path d="M12 14v4"/>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="9" r="4"/>
+                    <path d="M12 13v5"/>
                     <path d="M9 18h6"/>
-                    <path d="M9 6.5A4 4 0 0 1 16 10"/>
+                    <path d="M8 7A4 4 0 0 1 16 9"/>
                   </svg>
                 ),
               },
               {
                 label: 'Nourishing Cuticle Oil',
                 detail: 'Strawberry, Peach, Lavender or Rose',
-                note: 'Enriched with vitamins and keratin',
+                note: 'Enriched with vitamins and keratin · worth £12',
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 3h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V3z"/>
                     <path d="M12 10v11"/>
                     <path d="M9 21h6"/>
@@ -457,15 +553,20 @@ export default function StarterKitPage() {
         </div>
       </section>
 
-      {/* How to link */}
+      {/* Bottom CTA */}
       <section className="section-padding py-10 bg-ivory">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-mocha text-sm">
-            New to gel nail wraps?{' '}
-            <Link href="/how-to" className="text-charcoal underline underline-offset-2 hover:opacity-70 transition-opacity">
-              See our step-by-step application guide
-            </Link>
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-mocha text-sm mb-1">New to BeautiGel?</p>
+          <p className="text-mocha text-xs mb-5 opacity-70">
+            The single set option is perfect for trying your first style before building a
+            collection.
           </p>
+          <button
+            onClick={() => handleBundleChange('1-set')}
+            className="btn-secondary"
+          >
+            Start with a Single Set
+          </button>
         </div>
       </section>
 
