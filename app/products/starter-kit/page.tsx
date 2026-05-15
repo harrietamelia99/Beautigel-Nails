@@ -10,16 +10,6 @@ const BLUE = '#b4cbe6'
 
 const BUNDLES = [
   {
-    id: '1-set',
-    count: 1,
-    label: 'Single Set',
-    sublabel: 'Try BeautiGel',
-    price: '£17.99',
-    perSet: '£17.99 per set',
-    badge: null,
-    note: 'Perfect for first-time customers',
-  },
-  {
     id: '2-sets',
     count: 2,
     label: 'Any 2 Sets',
@@ -502,7 +492,7 @@ export default function StarterKitPage() {
               {
                 label: 'Gel Nail Wrap Sets',
                 detail: 'Your choice of style · 16 wraps per kit',
-                note: '1, 2, 3 or 4 sets depending on your bundle',
+                note: '2, 3 or 4 sets depending on your bundle',
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="3"/>
@@ -558,14 +548,13 @@ export default function StarterKitPage() {
         <div className="max-w-xl mx-auto text-center">
           <p className="text-mocha text-sm mb-1">New to BeautiGel?</p>
           <p className="text-mocha text-xs mb-5 opacity-70">
-            The single set option is perfect for trying your first style before building a
-            collection.
+            Not sure where to start? The 2-set bundle is our most popular choice for first-time customers.
           </p>
           <button
-            onClick={() => handleBundleChange('1-set')}
+            onClick={() => handleBundleChange('2-sets')}
             className="btn-secondary"
           >
-            Start with a Single Set
+            Start with 2 Sets
           </button>
         </div>
       </section>
