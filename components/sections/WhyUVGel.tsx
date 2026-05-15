@@ -1,3 +1,5 @@
+import { NailFormulaSection } from '@/components/sections/NailFormulaSection'
+
 const CALLOUTS = [
   {
     icon: (
@@ -228,6 +230,12 @@ export function WhyUVGel() {
           </div>
         </div>
 
+      </div>
+
+      {/* Formula / layers section — full bleed within page */}
+      <NailFormulaSection />
+
+      <div className="max-w-6xl mx-auto section-padding pb-0">
         {/* UV Safety note */}
         <div className="bg-white border border-nude rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: '#b4cbe6' }}>
@@ -245,7 +253,6 @@ export function WhyUVGel() {
             curing.
           </p>
         </div>
-
       </div>
     </section>
   )

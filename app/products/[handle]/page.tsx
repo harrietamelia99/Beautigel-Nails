@@ -10,6 +10,7 @@ import { Product } from '@/lib/types'
 import { PreOrderBadge } from '@/components/product/PreOrderBadge'
 import { ReviewsSection } from '@/components/product/ReviewsSection'
 import { ProductCard } from '@/components/product/ProductCard'
+import { NailFormulaSection } from '@/components/sections/NailFormulaSection'
 import { useCart } from '@/context/CartContext'
 
 const BLUE = '#b4cbe6'
@@ -358,6 +359,13 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
             ))}
           </div>
         </div>
+
+        {/* ── Formula section (gel wraps only) ── */}
+        {product.productType === 'Gel Wraps' && (
+          <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+            <NailFormulaSection />
+          </div>
+        )}
 
         {/* ── Reviews ── */}
         <ReviewsSection />
