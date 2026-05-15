@@ -132,6 +132,44 @@ export function WhyUVGel() {
 
           {/* Desktop table */}
           <div className="hidden md:block rounded-2xl overflow-hidden border border-nude">
+            {/* Image row above headers */}
+            <div className="grid grid-cols-4 border-b border-nude">
+              <div className="bg-ivory/40" />
+              {/* Beautigel image */}
+              <div className="border-l border-nude" style={{ backgroundColor: '#b4cbe610' }}>
+                <div
+                  className="w-full h-36 flex flex-col items-center justify-center gap-2"
+                  style={{ backgroundColor: '#b4cbe618' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b4cbe6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <p className="text-[9px] tracking-widest uppercase text-mocha/40">Kiana to provide image</p>
+                </div>
+              </div>
+              {/* Non-UV image */}
+              <div className="border-l border-nude bg-white">
+                <div className="w-full h-36 flex flex-col items-center justify-center gap-2 bg-nude/20">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c4b8ac" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <p className="text-[9px] tracking-widest uppercase text-mocha/30">Kiana to provide image</p>
+                </div>
+              </div>
+              {/* Salon image */}
+              <div className="border-l border-nude bg-white">
+                <div className="w-full h-36 flex flex-col items-center justify-center gap-2 bg-nude/20">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c4b8ac" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <p className="text-[9px] tracking-widest uppercase text-mocha/30">Kiana to provide image</p>
+                </div>
+              </div>
+            </div>
+
             {/* Header row */}
             <div className="grid grid-cols-4 bg-white border-b border-nude">
               <div className="p-5" />
