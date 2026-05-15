@@ -116,14 +116,6 @@ const WRAP_STYLES = [
   { id: 'cappuccino', label: 'Cappuccino', colour: '#C4A882', image: '/products/cappuccino.png' },
   { id: 'cherry-blossom', label: 'Cherry Blossom', colour: '#F4A7B9', image: '/products/cherry-blossom.png' },
   { id: 'coffee-and-cream-ombre', label: 'Coffee and Cream', colour: '#C4956A', image: '/products/coffee-and-cream.png' },
-  { id: 'coral-glow', label: 'Coral Glow', colour: '#FF7F6E', image: null },
-  { id: 'daisy-dream', label: 'Daisy Dream', colour: '#FFF0AA', image: null },
-  { id: 'fine-wine-gloss', label: 'Fine Wine Gloss', colour: '#722F37', image: null },
-  { id: 'floral-bloom', label: 'Floral Bloom', colour: '#F9A8D4', image: null },
-  { id: 'french-check-affair', label: 'French Check Affair', colour: '#F5F0EB', image: null },
-  { id: 'golden-luxe', label: 'Golden Luxe', colour: '#D4AF37', image: null },
-  { id: 'lavender-love', label: 'Lavender Love', colour: '#B57EDC', image: null },
-  { id: 'lilac-cloud', label: 'Lilac Cloud', colour: '#C8A2C8', image: null },
 ]
 
 const FAQS = [
@@ -380,7 +372,7 @@ export default function SubscribePage() {
                 })}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-60 overflow-y-auto pr-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {WRAP_STYLES.map((style) => {
                   const isSelected = selectedStyles.includes(style.id)
                   const isDisabled = !isSelected && selectedStyles.length >= requiredCount
@@ -411,6 +403,7 @@ export default function SubscribePage() {
                   )
                 })}
               </div>
+              <p className="text-[10px] text-mocha/50 italic mt-3">More colours to be added soon.</p>
             </div>
 
             {/* CTA */}
