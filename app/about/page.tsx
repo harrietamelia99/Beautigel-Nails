@@ -83,37 +83,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Editorial imagery strip */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5 bg-nude/40" style={{ height: 'clamp(240px, 35vw, 420px)' }}>
-        <div className="relative overflow-hidden">
-          <Image
-            src="/lifestyle/model-french-tip.png"
-            alt="Model wearing French tip gel nail wraps"
-            fill
-            sizes="(max-width: 768px) 50vw, 33vw"
-            className="object-cover object-top transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-        <div className="relative overflow-hidden hidden md:block">
-          <Image
-            src="/lifestyle/model-blue-nails.png"
-            alt="Model wearing light blue gel nail wraps"
-            fill
-            sizes="33vw"
-            className="object-cover object-center transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-        <div className="relative overflow-hidden">
-          <Image
-            src="/lifestyle/model-mixed-nails.png"
-            alt="Model with mixed nail art gel wraps"
-            fill
-            sizes="(max-width: 768px) 50vw, 33vw"
-            className="object-cover object-center transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-      </div>
-
       {/* Founding story */}
       <section className="section-padding section-py bg-ivory">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
