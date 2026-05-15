@@ -167,21 +167,19 @@ const KEY_INGREDIENTS = [
 ]
 
 const FULL_INGREDIENTS = [
-  { inci: 'Caprylic/Capric Triglyceride', note: null },
-  { inci: 'Isopropyl Palmitate', note: null },
   { inci: 'Vitis Vinifera (Grape) Seed Oil', note: 'Grapeseed Oil' },
+  { inci: 'Amino Acids', note: null },
+  { inci: 'BHA', note: 'Butylated Hydroxyanisole' },
+  { inci: 'Hydrolyzed Keratin', note: 'Natural Keratin' },
+  { inci: 'Calcium', note: 'Organic Calcium' },
   { inci: 'Carthamus Tinctorius (Safflower) Seed Oil', note: 'Safflower Oil' },
-  { inci: 'Simmondsia Chinensis (Jojoba) Seed Oil', note: null },
-  { inci: 'Tocopheryl Acetate', note: 'Vitamin E' },
   { inci: 'Retinyl Palmitate', note: 'Vitamin A' },
   { inci: 'Cholecalciferol', note: 'Vitamin D' },
+  { inci: 'Sesamum Indicum (Sesame) Seed Oil', note: 'Sesame Oil' },
   { inci: 'Panthenol', note: 'Vitamin B5' },
-  { inci: 'Hydrolyzed Keratin', note: 'Keratin' },
-  { inci: 'Hydrolyzed Wheat Protein', note: 'Amino Acids' },
-  { inci: 'Bisabolol', note: null },
-  { inci: 'Phenoxyethanol', note: null },
-  { inci: 'Ethylhexylglycerin', note: null },
-  { inci: 'Parfum', note: 'Fragrance — available in Strawberry, Peach, Lavender, Rose' },
+  { inci: 'Tocopheryl Acetate', note: 'Vitamin E' },
+  { inci: 'Thymol', note: null },
+  { inci: 'Methyl Gluceth', note: 'Methyl Glucose Ether' },
 ]
 
 const VIDEO_CLIPS = [
@@ -451,7 +449,7 @@ export default function CuticleOilPage() {
                     ))}
                   </div>
                   <p className="text-[9px] text-mocha/40 mt-4 italic">
-                    Final INCI declaration to be confirmed by manufacturer prior to launch.
+                    For allergen queries please contact us before purchase.
                   </p>
                 </div>
               </div>
