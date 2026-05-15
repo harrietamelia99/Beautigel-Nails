@@ -39,11 +39,11 @@ export function SubscribeCTA() {
               with exclusive subscriber pricing, free UK shipping and complete flexibility to
               pause, skip or cancel at any time.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/subscribe" className="btn-primary whitespace-nowrap">
+            <div className="flex flex-col gap-3">
+              <Link href="/subscribe" className="btn-primary text-center">
                 Explore Membership
               </Link>
-              <Link href="/products/starter-kit" className="btn-secondary whitespace-nowrap">
+              <Link href="/products/starter-kit" className="btn-secondary text-center">
                 Start with a Bundle
               </Link>
             </div>
