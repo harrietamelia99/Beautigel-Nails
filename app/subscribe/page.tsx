@@ -219,15 +219,15 @@ export default function SubscribePage() {
 
           {/* Left: image placeholder + perks summary */}
           <div className="lg:sticky lg:top-28">
-            <div
-              className="rounded-2xl w-full aspect-square flex flex-col items-center justify-center gap-3 mb-5"
-              style={{ background: 'linear-gradient(145deg, #f4ede8 0%, #e8ddd6 40%, #b4cbe6 100%)' }}
-            >
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="opacity-60">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <p className="text-[9px] tracking-widest uppercase text-white/50">Kiana to provide image</p>
+            <div className="rounded-2xl overflow-hidden mb-5">
+              <Image
+                src="/lifestyle/subscribe-calendar.png"
+                alt="BeautiGel subscription — new nail set delivered every month"
+                width={800}
+                height={800}
+                className="w-full h-auto rounded-2xl"
+                priority
+              />
             </div>
 
             {/* Saving summary card */}
