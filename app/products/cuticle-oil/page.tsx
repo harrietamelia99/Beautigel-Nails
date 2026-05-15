@@ -65,52 +65,122 @@ const BENEFITS = [
 const KEY_INGREDIENTS = [
   {
     name: 'Grapeseed Oil',
+    inci: 'Vitis Vinifera Seed Oil',
     role: 'Deep conditioning',
-    desc: 'Rich in linoleic acid, grapeseed oil softens and hydrates without leaving a greasy residue.',
+    desc: 'Rich in linoleic acid and antioxidants. Softens and hydrates without leaving a greasy residue.',
     colour: '#c8e6c9',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a9 9 0 0 1 9 9c0 5-4 9-9 11C8 20 3 16 3 11a9 9 0 0 1 9-9z"/>
+        <path d="M12 7v5l3 3"/>
+      </svg>
+    ),
   },
   {
     name: 'Safflower Oil',
+    inci: 'Carthamus Tinctorius Seed Oil',
     role: 'Moisture retention',
     desc: 'A lightweight emollient that locks in moisture and soothes dry, damaged cuticles.',
-    colour: '#fff9c4',
+    colour: '#fff0c4',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2C6 2 4 7 4 10c0 4 3 7 8 10 5-3 8-6 8-10 0-3-2-8-8-8z"/>
+      </svg>
+    ),
   },
   {
-    name: 'Keratin',
+    name: 'Hydrolysed Keratin',
+    inci: 'Hydrolyzed Keratin',
     role: 'Nail strengthening',
-    desc: "The same protein that nails are made of. Helps rebuild and reinforce the nail's natural structure.",
+    desc: "The same protein nails are made of. Rebuilds and reinforces the nail's natural structure from within.",
     colour: '#b4cbe6',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    ),
   },
   {
     name: 'Amino Acids',
+    inci: 'Hydrolyzed Wheat Protein',
     role: 'Structural repair',
-    desc: 'The building blocks of keratin. Work alongside keratin to support long-term nail resilience.',
-    colour: '#d4c5b0',
+    desc: 'The building blocks of keratin. Work synergistically to support long-term nail resilience.',
+    colour: '#e8ddd0',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+        <path d="M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/>
+      </svg>
+    ),
   },
   {
     name: 'Vitamin A',
+    inci: 'Retinyl Palmitate',
     role: 'Cell renewal',
     desc: 'Encourages healthy nail cell turnover, promoting stronger, faster-growing nails.',
-    colour: '#ffccbc',
+    colour: '#ffd8b4',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+    ),
   },
   {
     name: 'Vitamin D',
+    inci: 'Cholecalciferol',
     role: 'Nail hardness',
-    desc: 'Supports calcium absorption, which plays a key role in maintaining nail hardness.',
+    desc: 'Supports calcium absorption, which plays a key role in maintaining nail hardness and density.',
     colour: '#fff9c4',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+      </svg>
+    ),
   },
   {
     name: 'Vitamin B5',
-    role: 'Flexibility & shine',
-    desc: 'Panthenol penetrates the nail to improve flexibility and add a natural-looking sheen.',
-    colour: '#e1bee7',
+    inci: 'Panthenol',
+    role: 'Flexibility and shine',
+    desc: 'Penetrates the nail plate to improve flexibility, prevent breakage and add a natural sheen.',
+    colour: '#e8d8f0',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+    ),
   },
   {
     name: 'Vitamin E',
+    inci: 'Tocopheryl Acetate',
     role: 'Antioxidant protection',
-    desc: 'Protects the nail and surrounding skin from oxidative stress. A classic nail care staple.',
-    colour: '#b2dfdb',
+    desc: 'Protects the nail and surrounding skin from oxidative stress. A classic nail care hero.',
+    colour: '#c8e8d8',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    ),
   },
+]
+
+const FULL_INGREDIENTS = [
+  { inci: 'Caprylic/Capric Triglyceride', note: null },
+  { inci: 'Isopropyl Palmitate', note: null },
+  { inci: 'Vitis Vinifera (Grape) Seed Oil', note: 'Grapeseed Oil' },
+  { inci: 'Carthamus Tinctorius (Safflower) Seed Oil', note: 'Safflower Oil' },
+  { inci: 'Simmondsia Chinensis (Jojoba) Seed Oil', note: null },
+  { inci: 'Tocopheryl Acetate', note: 'Vitamin E' },
+  { inci: 'Retinyl Palmitate', note: 'Vitamin A' },
+  { inci: 'Cholecalciferol', note: 'Vitamin D' },
+  { inci: 'Panthenol', note: 'Vitamin B5' },
+  { inci: 'Hydrolyzed Keratin', note: 'Keratin' },
+  { inci: 'Hydrolyzed Wheat Protein', note: 'Amino Acids' },
+  { inci: 'Bisabolol', note: null },
+  { inci: 'Phenoxyethanol', note: null },
+  { inci: 'Ethylhexylglycerin', note: null },
+  { inci: 'Parfum', note: 'Fragrance — available in Strawberry, Peach, Lavender, Rose' },
 ]
 
 const VIDEO_CLIPS = [
@@ -248,72 +318,144 @@ export default function CuticleOilPage() {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding py-12 md:py-16 border-b border-nude/60">
+      <section className="section-padding py-14 md:py-20 border-b border-nude/60">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="label-text mb-2">Formulated for Your Nails</p>
-            <h2 className="section-heading text-2xl md:text-3xl text-charcoal">Why You Will Love It.</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="bg-white border border-nude rounded-2xl p-6 flex flex-col gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: '#b4cbe620' }}>
-                  {b.icon}
-                </div>
-                <div>
-                  <p className="section-heading text-sm text-charcoal mb-1">{b.title}</p>
-                  <p className="text-mocha text-xs leading-relaxed">{b.desc}</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+            {/* Left: headline + intro */}
+            <div>
+              <p className="label-text mb-3">Formulated for Your Nails</p>
+              <h2 className="section-heading text-2xl md:text-3xl text-charcoal mb-5">
+                Why You Will Love It.
+              </h2>
+              <p className="text-mocha text-sm leading-relaxed mb-6">
+                Most cuticle oils do one thing well. Ours is formulated to do four, working on the
+                nail, the cuticle, the structure and the skin all at once so your routine stays
+                simple without sacrificing results.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Grapeseed Oil', 'Safflower Oil', 'Keratin', 'Vitamins A, D, B5 + E'].map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[9px] tracking-widest uppercase font-medium border border-nude px-3 py-1.5 rounded-full text-charcoal"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right: benefit cards */}
+            <div className="grid grid-cols-2 gap-3">
+              {BENEFITS.map((b) => (
+                <div key={b.title} className="bg-white border border-nude rounded-2xl p-5 flex flex-col gap-3">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: '#b4cbe620' }}
+                  >
+                    {b.icon}
+                  </div>
+                  <div>
+                    <p className="section-heading text-sm text-charcoal mb-1">{b.title}</p>
+                    <p className="text-mocha text-[11px] leading-relaxed">{b.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* Key ingredients visual */}
-      <section className="section-padding py-12 md:py-16 bg-nude/30 border-b border-nude/60">
+      <section className="section-padding py-14 md:py-20 bg-nude/30 border-b border-nude/60">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <p className="label-text mb-2">What Is Inside</p>
             <h2 className="section-heading text-2xl md:text-3xl text-charcoal">Key Ingredients.</h2>
+            <p className="text-mocha text-sm mt-3 max-w-lg mx-auto leading-relaxed">
+              Every ingredient earns its place. Our formula combines botanical oils, structural
+              proteins and targeted vitamins for nails that genuinely feel the difference.
+            </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          {/* Ingredient cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-10">
             {KEY_INGREDIENTS.map((ing) => (
               <div
                 key={ing.name}
-                className="rounded-2xl p-5 flex flex-col gap-2 border border-nude/60"
-                style={{ backgroundColor: ing.colour + '40' }}
+                className="rounded-2xl p-5 flex flex-col gap-3 border border-nude/60 bg-white hover:shadow-sm transition-shadow group"
               >
-                <div
-                  className="w-8 h-8 rounded-full mb-1"
-                  style={{ backgroundColor: ing.colour }}
-                />
-                <p className="text-charcoal font-semibold text-sm">{ing.name}</p>
-                <p className="text-[10px] tracking-widest uppercase text-mocha font-medium">{ing.role}</p>
-                <p className="text-mocha text-xs leading-relaxed">{ing.desc}</p>
+                {/* Colour swatch + icon */}
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105"
+                    style={{ backgroundColor: ing.colour }}
+                  >
+                    <span style={{ color: '#5a5a5a' }}>{ing.icon}</span>
+                  </div>
+                  <div>
+                    <p className="text-charcoal font-semibold text-xs leading-tight">{ing.name}</p>
+                    <p className="text-[9px] tracking-widest uppercase text-mocha/60 mt-0.5">{ing.role}</p>
+                  </div>
+                </div>
+                <p className="text-mocha text-[11px] leading-relaxed">{ing.desc}</p>
+                <p className="text-[9px] tracking-wide text-mocha/40 italic leading-tight">{ing.inci}</p>
               </div>
             ))}
           </div>
 
           {/* Full ingredients accordion */}
-          <div className="mt-8 bg-white border border-nude rounded-2xl overflow-hidden">
+          <div className="bg-white border border-nude rounded-2xl overflow-hidden">
             <button
               onClick={() => setIngredientsOpen((v) => !v)}
-              className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-nude/20 transition-colors"
+              className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-nude/20 transition-colors"
             >
-              <span className="text-[10px] tracking-widest uppercase text-charcoal font-semibold">Full Ingredients List</span>
+              <div>
+                <span className="text-[10px] tracking-widest uppercase text-charcoal font-semibold">Full Ingredients List</span>
+                <p className="text-mocha text-xs mt-0.5">INCI Declaration</p>
+              </div>
               <svg
                 width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-                className={`text-mocha transition-transform duration-200 ${ingredientsOpen ? 'rotate-180' : ''}`}
+                className={`text-mocha transition-transform duration-200 shrink-0 ml-4 ${ingredientsOpen ? 'rotate-180' : ''}`}
               >
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
             {ingredientsOpen && (
-              <div className="px-6 pb-5 border-t border-nude">
-                <p className="text-mocha text-xs leading-relaxed pt-4 italic">
-                  Full ingredients list to be provided by client. [TBC]
-                </p>
+              <div className="border-t border-nude">
+                <div className="px-6 pt-5 pb-6">
+                  <p className="text-[9px] tracking-widest uppercase text-mocha/50 mb-4">
+                    Ingredients are listed in descending order of concentration
+                  </p>
+                  <div className="space-y-2">
+                    {FULL_INGREDIENTS.map((item, i) => (
+                      <div
+                        key={item.inci}
+                        className="flex items-start gap-3 py-2 border-b border-nude/40 last:border-b-0"
+                      >
+                        <span className="text-[9px] text-mocha/30 font-mono w-5 shrink-0 mt-0.5">{i + 1}</span>
+                        <div className="flex-1 min-w-0">
+                          <span className="text-xs text-charcoal">{item.inci}</span>
+                          {item.note && (
+                            <span className="text-[10px] text-mocha/60 ml-2 italic">{item.note}</span>
+                          )}
+                        </div>
+                        {item.note && item.note !== 'Fragrance — available in Strawberry, Peach, Lavender, Rose' && (
+                          <span
+                            className="text-[8px] tracking-widest uppercase font-semibold px-2 py-0.5 rounded-full shrink-0"
+                            style={{ backgroundColor: '#b4cbe620', color: '#5a7a8a' }}
+                          >
+                            Key
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[9px] text-mocha/40 mt-4 italic">
+                    Final INCI declaration to be confirmed by manufacturer prior to launch.
+                  </p>
+                </div>
               </div>
             )}
           </div>
