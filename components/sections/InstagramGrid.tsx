@@ -3,9 +3,9 @@
 import Image from 'next/image'
 
 const POSTS = [
-  { src: '/products/coffee-and-cream.png', alt: 'Coffee and Cream Ombré gel nail wraps' },
-  { src: '/products/candy-apple-red.png', alt: 'Candy Apple Red Glitter gel nail wraps' },
-  { src: '/products/cherry-blossom.png', alt: 'Cherry Blossom gel nail wraps' },
+  { src: '/lifestyle/model-tortoiseshell.png', alt: 'Model wearing tortoiseshell gel nail wraps' },
+  { src: '/lifestyle/model-french-tip.png', alt: 'Model wearing French tip gel nail wraps' },
+  { src: '/lifestyle/model-mixed-nails.png', alt: 'Model wearing mixed nail art gel wraps' },
 ]
 
 export function InstagramGrid() {
