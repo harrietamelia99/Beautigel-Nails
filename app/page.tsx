@@ -4,6 +4,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks'
 import { FeaturedKit } from '@/components/sections/FeaturedKit'
 import { WhyUVGel } from '@/components/sections/WhyUVGel'
 import { BrandStory } from '@/components/sections/BrandStory'
+import { SubscribeCTA } from '@/components/sections/SubscribeCTA'
 import { InstagramGrid } from '@/components/sections/InstagramGrid'
 import { EmailSignup } from '@/components/sections/EmailSignup'
 import { ProductGrid } from '@/components/product/ProductGrid'
@@ -36,6 +37,7 @@ export default async function HomePage() {
 
       <WhyUVGel />
       <BrandStory />
+      <SubscribeCTA />
       <PressBar />
       <InstagramGrid />
       <EmailSignup />
