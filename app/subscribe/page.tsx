@@ -360,7 +360,7 @@ export default function SubscribePage() {
                     <div key={i} className="shrink-0 w-14 flex flex-col items-center gap-1.5">
                       <div
                         className={`w-14 h-14 rounded-xl border-2 flex items-center justify-center overflow-hidden transition-all ${
-                          style ? 'border-charcoal' : 'border-dashed border-nude/60'
+                          style ? 'border-charcoal' : 'border-dashed border-mocha/40'
                         }`}
                         style={style ? { backgroundColor: style.colour } : {}}
                       >
@@ -369,7 +369,7 @@ export default function SubscribePage() {
                         ) : style ? (
                           <div className="w-full h-full" style={{ backgroundColor: style.colour }} />
                         ) : (
-                          <span className="text-nude text-lg font-light">+</span>
+                          <span className="text-mocha/40 text-lg font-light">+</span>
                         )}
                       </div>
                       <p className="text-[8px] text-mocha text-center leading-tight max-w-[52px]">

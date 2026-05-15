@@ -299,7 +299,7 @@ export default function StarterKitPage() {
                         className={`w-16 h-16 rounded-2xl border-2 flex items-center justify-center overflow-hidden transition-all ${
                           style
                             ? 'border-charcoal'
-                            : 'border-dashed border-nude/60'
+                            : 'border-dashed border-mocha/40'
                         }`}
                         style={style ? { backgroundColor: style.colour } : {}}
                       >
@@ -314,7 +314,7 @@ export default function StarterKitPage() {
                         ) : style ? (
                           <div className="w-full h-full" style={{ backgroundColor: style.colour }} />
                         ) : (
-                          <span className="text-nude text-xl font-light">+</span>
+                          <span className="text-mocha/40 text-xl font-light">+</span>
                         )}
                       </div>
                       <p className="text-[8px] text-mocha text-center leading-tight max-w-[60px]">
