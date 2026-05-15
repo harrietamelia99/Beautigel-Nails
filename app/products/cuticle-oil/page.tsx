@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
 import { CircularVideoRow } from '@/components/ui/CircularVideoRow'
 
@@ -221,19 +222,16 @@ export default function CuticleOilPage() {
       <section className="section-padding py-12 md:py-16 border-b border-nude/60">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* Placeholder image */}
-          <div
-            className="rounded-2xl w-full aspect-square flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #f4e8dc 0%, #e8d0c0 50%, #b4cbe6 100%)' }}
-          >
-            <div className="text-center px-8">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-4 opacity-60">
-                <path d="M8 3h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V3z"/>
-                <path d="M12 10v11"/>
-                <path d="M9 21h6"/>
-              </svg>
-              <p className="text-[10px] tracking-widest uppercase text-mocha/60">Kiana to provide image</p>
-            </div>
+          {/* Product image */}
+          <div className="rounded-2xl overflow-hidden">
+            <Image
+              src="/products/cuticle-oil.png"
+              alt="Beautigel Nourishing Cuticle Oil — Peach, Lavender, Strawberry and Rose"
+              width={800}
+              height={800}
+              className="w-full h-auto rounded-2xl"
+              priority
+            />
           </div>
 
           {/* Info */}
