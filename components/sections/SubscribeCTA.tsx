@@ -15,7 +15,7 @@ export function SubscribeCTA() {
     <section className="section-padding py-14 md:py-20 border-t border-nude/60 bg-nude/30">
       <div className="max-w-6xl mx-auto">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-stretch">
 
           {/* Left: image */}
           <div className="hidden lg:block">
@@ -40,21 +40,21 @@ export function SubscribeCTA() {
               pause, skip or cancel at any time.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/subscribe" className="btn-primary">
+              <Link href="/subscribe" className="btn-primary whitespace-nowrap">
                 Explore Membership
               </Link>
-              <Link href="/products/starter-kit" className="btn-secondary">
+              <Link href="/products/starter-kit" className="btn-secondary whitespace-nowrap">
                 Start with a Bundle
               </Link>
             </div>
           </div>
 
           {/* Right: perk tiles */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 content-stretch">
             {PERKS.map((perk) => (
               <div
                 key={perk.label}
-                className="bg-white border border-nude rounded-2xl p-5 flex flex-col gap-2"
+                className="bg-white border border-nude rounded-2xl p-5 flex flex-col gap-2 h-full"
               >
                 <div
                   className="w-2 h-2 rounded-full"
