@@ -4,8 +4,8 @@ import { Logo } from '@/components/layout/Logo'
 const SHOP_LINKS = [
   { label: 'All Products', href: '/products' },
   { label: 'The Starter Kit', href: '/products/starter-kit' },
+  { label: 'Subscribe and Save', href: '/subscribe' },
   { label: 'Gel Nail Wraps', href: '/products?category=gel-wraps' },
-  { label: 'UV Lamp', href: '/products?category=uv-lamp' },
   { label: 'Cuticle Oil', href: '/products?category=cuticle-oil' },
 ]
 
