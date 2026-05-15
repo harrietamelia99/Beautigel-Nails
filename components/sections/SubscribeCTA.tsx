@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const BLUE = '#b4cbe6'
 
@@ -14,9 +15,20 @@ export function SubscribeCTA() {
     <section className="section-padding py-14 md:py-20 border-t border-nude/60 bg-nude/30">
       <div className="max-w-6xl mx-auto">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-center">
 
-          {/* Left: copy */}
+          {/* Left: image */}
+          <div className="hidden lg:block">
+            <Image
+              src="/lifestyle/subscribe-calendar.png"
+              alt="BeautiGel subscription — new nail set delivered every month"
+              width={600}
+              height={600}
+              className="w-full h-auto rounded-2xl"
+            />
+          </div>
+
+          {/* Middle: copy */}
           <div>
             <p className="label-text mb-3" style={{ color: BLUE }}>Member Savings</p>
             <h2 className="section-heading text-2xl md:text-3xl text-charcoal mb-5">
