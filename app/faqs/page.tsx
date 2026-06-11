@@ -3,8 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-export const metadata = undefined // client component — metadata set via layout
-
 const CATEGORIES = [
   {
     id: 'product',
