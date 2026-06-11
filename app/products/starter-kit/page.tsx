@@ -51,6 +51,7 @@ const WRAP_STYLES = [
   { id: 'coral-glow', label: 'Coral Glow', colour: '#F4A7B9', image: '/products/coral-glow.png' },
   { id: 'daisy-dream', label: 'Daisy Dream', colour: '#F9A8D4', image: '/products/daisy-dream.png' },
   { id: 'fine-wine-gloss', label: 'Fine Wine Gloss', colour: '#9B1B5A', image: '/products/fine-wine-gloss.png' },
+  { id: 'floral-bloom', label: 'Floral Bloom', colour: '#F9C6D0', image: '/products/floral-bloom.png' },
 ]
 
 const FRAGRANCES = [
