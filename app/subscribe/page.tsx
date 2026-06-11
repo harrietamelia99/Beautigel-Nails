@@ -125,6 +125,7 @@ const WRAP_STYLES = [
   { id: 'golden-luxe', label: 'Golden Luxe', colour: '#D4AF6A', image: '/products/golden-luxe.png' },
   { id: 'lavender-love', label: 'Lavender Love', colour: '#B57FD6', image: '/products/lavender-love.png' },
   { id: 'lilac-cloud', label: 'Lilac Cloud', colour: '#C3B1E1', image: '/products/lilac-cloud.png' },
+  { id: 'noir-swirl', label: 'Noir Swirl', colour: '#1C1C1C', image: '/products/noir-swirl.png' },
 ]
 
 const FAQS = [
