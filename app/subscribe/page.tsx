@@ -124,6 +124,7 @@ const WRAP_STYLES = [
   { id: 'french-check-affair', label: 'French Check Affair', colour: '#E8DDD5', image: '/products/french-check-affair.png' },
   { id: 'golden-luxe', label: 'Golden Luxe', colour: '#D4AF6A', image: '/products/golden-luxe.png' },
   { id: 'lavender-love', label: 'Lavender Love', colour: '#B57FD6', image: '/products/lavender-love.png' },
+  { id: 'lilac-cloud', label: 'Lilac Cloud', colour: '#C3B1E1', image: '/products/lilac-cloud.png' },
 ]
 
 const FAQS = [
