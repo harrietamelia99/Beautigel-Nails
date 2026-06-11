@@ -63,6 +63,7 @@ const WRAP_STYLES = [
   { id: 'rose-petal-blush', label: 'Rose Petal Blush', colour: '#E8B4C0', image: '/products/rose-petal-blush.png' },
   { id: 'ruby-radiance', label: 'Ruby Radiance', colour: '#9B111E', image: '/products/ruby-radiance.png' },
   { id: 'sugarpink-glitter-bomb', label: 'Sugarpink Glitter Bomb', colour: '#F4B8C8', image: '/products/sugarpink-glitter-bomb.png' },
+  { id: 'whispers-of-fall', label: 'Whispers of Fall', colour: '#7B3B4E', image: '/products/whispers-of-fall.png' },
 ]
 
 const FRAGRANCES = [
