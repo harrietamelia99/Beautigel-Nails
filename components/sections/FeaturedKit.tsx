@@ -14,7 +14,7 @@ const BUNDLES = [
   {
     id: 'starter-kit',
     label: 'The Ultimate Starter Kit',
-    price: '[STARTER KIT PRICE TBC]',
+    price: 'From £29.99',
     originalPrice: null,
     perSet: '2× Gel Nail Wraps · UV Lamp · Cuticle Oil',
     badge: 'Everything You Need',
@@ -123,7 +123,7 @@ export function FeaturedKit() {
             <span className="w-7 h-7 rounded-full border border-charcoal flex items-center justify-center text-xs font-bold">2</span>
             <h2 className="section-heading text-xs text-charcoal">Choose Your Wrap Styles</h2>
           </div>
-          <span className="text-[10px] tracking-widest uppercase text-mocha">[STYLE COUNT TBC]</span>
+          <span className="text-[10px] tracking-widest uppercase text-mocha">20+ styles available</span>
         </div>
 
         {/* CTA */}
