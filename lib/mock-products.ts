@@ -123,6 +123,15 @@ export const MOCK_PRODUCTS: Product[] = [
     ['gel-wraps', 'nail-art'],
   ),
   makeProduct(
+    'daisy-dream-semi-cured-gel-nail-wrap-kit',
+    'Daisy Dream Semi-Cured Gel Nail Wrap Kit',
+    '13.99',
+    'Gel Wraps',
+    '/products/daisy-dream.png',
+    null,
+    ['gel-wraps', 'nail-art'],
+  ),
+  makeProduct(
     'coral-glow-semi-cured-gel-nail-wrap-kit',
     'Coral Glow Semi-Cured Gel Nail Wrap Kit',
     '13.99',

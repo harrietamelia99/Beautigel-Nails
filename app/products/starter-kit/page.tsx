@@ -49,6 +49,7 @@ const WRAP_STYLES = [
   { id: 'coffee-and-cream-ombre', label: 'Coffee and Cream', colour: '#C4956A', image: '/products/coffee-and-cream.png' },
   { id: 'colour-pop-tips', label: 'Colour Pop Tips', colour: '#E8C4B8', image: '/products/colour-pop-tips.png' },
   { id: 'coral-glow', label: 'Coral Glow', colour: '#F4A7B9', image: '/products/coral-glow.png' },
+  { id: 'daisy-dream', label: 'Daisy Dream', colour: '#F9A8D4', image: '/products/daisy-dream.png' },
 ]
 
 const FRAGRANCES = [
