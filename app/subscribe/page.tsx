@@ -128,6 +128,7 @@ const WRAP_STYLES = [
   { id: 'noir-swirl', label: 'Noir Swirl', colour: '#1C1C1C', image: '/products/noir-swirl.png' },
   { id: 'pastel-opulence', label: 'Pastel Opulence', colour: '#F2C4CE', image: '/products/pastel-opulence.png' },
   { id: 'radiant-rouge', label: 'Radiant Rouge', colour: '#CC0000', image: '/products/radiant-rouge.png' },
+  { id: 'rainbow-dream', label: 'Rainbow Dream', colour: '#A8D8EA', image: '/products/rainbow-dream.png' },
 ]
 
 const FAQS = [
