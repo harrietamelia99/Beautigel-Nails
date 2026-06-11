@@ -389,7 +389,7 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
         )}
 
         {/* ── Reviews ── */}
-        <ReviewsSection />
+        <ReviewsSection productHandle={product.handle} />
 
         {/* ── Related products ── */}
         {related.length > 0 && (
