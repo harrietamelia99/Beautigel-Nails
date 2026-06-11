@@ -77,6 +77,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.title}
           </h3>
           <p className="text-white/70 text-xs font-light">
+            {product.productType === 'Starter Kit' ? 'From ' : ''}
             {formatPrice(product.price, product.currencyCode)}
             {product.compareAtPrice && (
               <span className="line-through ml-2 text-white/40">

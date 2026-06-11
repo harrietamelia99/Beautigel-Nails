@@ -71,7 +71,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'starter-kit',
     'The Ultimate Starter Kit',
-    '[TBC]',
+    '29.99',
     'Starter Kit',
     '/products/starter-kit.png',
     null,
