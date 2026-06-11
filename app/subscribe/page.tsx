@@ -119,6 +119,7 @@ const WRAP_STYLES = [
   { id: 'colour-pop-tips', label: 'Colour Pop Tips', colour: '#E8C4B8', image: '/products/colour-pop-tips.png' },
   { id: 'coral-glow', label: 'Coral Glow', colour: '#F4A7B9', image: '/products/coral-glow.png' },
   { id: 'daisy-dream', label: 'Daisy Dream', colour: '#F9A8D4', image: '/products/daisy-dream.png' },
+  { id: 'fine-wine-gloss', label: 'Fine Wine Gloss', colour: '#9B1B5A', image: '/products/fine-wine-gloss.png' },
 ]
 
 const FAQS = [
