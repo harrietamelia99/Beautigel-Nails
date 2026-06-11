@@ -4,8 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
-import { CircularVideoRow } from '@/components/ui/CircularVideoRow'
-
 const BLUE = '#b4cbe6'
 
 const BUNDLES = [
@@ -426,17 +424,6 @@ export default function StarterKitPage() {
               Free UV lamp (worth £21) · cuticle oil (worth £12) · UK shipping included
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Circular video row */}
-      <section className="section-padding border-b border-nude/60">
-        <div className="max-w-6xl mx-auto">
-          <CircularVideoRow
-            title="From Box to Beautiful"
-            subtitle="How It Works"
-            clips={VIDEO_CLIPS}
-          />
         </div>
       </section>
 

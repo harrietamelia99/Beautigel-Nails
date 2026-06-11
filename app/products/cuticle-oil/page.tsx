@@ -4,8 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
-import { CircularVideoRow } from '@/components/ui/CircularVideoRow'
-
 const BLUE = '#b4cbe6'
 
 const FRAGRANCES = [
@@ -455,17 +453,6 @@ export default function CuticleOilPage() {
               </div>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* Circular video row */}
-      <section className="section-padding border-b border-nude/60">
-        <div className="max-w-6xl mx-auto">
-          <CircularVideoRow
-            title="Your Daily Nail Ritual"
-            subtitle="See It In Action"
-            clips={VIDEO_CLIPS}
-          />
         </div>
       </section>
 
