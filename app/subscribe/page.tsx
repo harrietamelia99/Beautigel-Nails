@@ -116,6 +116,7 @@ const WRAP_STYLES = [
   { id: 'cappuccino', label: 'Cappuccino', colour: '#C4A882', image: '/products/cappuccino.png' },
   { id: 'cherry-blossom', label: 'Cherry Blossom', colour: '#F4A7B9', image: '/products/cherry-blossom.png' },
   { id: 'coffee-and-cream-ombre', label: 'Coffee and Cream', colour: '#C4956A', image: '/products/coffee-and-cream.png' },
+  { id: 'colour-pop-tips', label: 'Colour Pop Tips', colour: '#E8C4B8', image: '/products/colour-pop-tips.png' },
 ]
 
 const FAQS = [
