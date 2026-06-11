@@ -53,6 +53,7 @@ const WRAP_STYLES = [
   { id: 'fine-wine-gloss', label: 'Fine Wine Gloss', colour: '#9B1B5A', image: '/products/fine-wine-gloss.png' },
   { id: 'floral-bloom', label: 'Floral Bloom', colour: '#F9C6D0', image: '/products/floral-bloom.png' },
   { id: 'french-check-affair', label: 'French Check Affair', colour: '#E8DDD5', image: '/products/french-check-affair.png' },
+  { id: 'golden-luxe', label: 'Golden Luxe', colour: '#D4AF6A', image: '/products/golden-luxe.png' },
 ]
 
 const FRAGRANCES = [
