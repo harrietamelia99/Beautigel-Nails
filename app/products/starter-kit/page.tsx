@@ -61,6 +61,7 @@ const WRAP_STYLES = [
   { id: 'radiant-rouge', label: 'Radiant Rouge', colour: '#CC0000', image: '/products/radiant-rouge.png' },
   { id: 'rainbow-dream', label: 'Rainbow Dream', colour: '#A8D8EA', image: '/products/rainbow-dream.png' },
   { id: 'rose-petal-blush', label: 'Rose Petal Blush', colour: '#E8B4C0', image: '/products/rose-petal-blush.png' },
+  { id: 'ruby-radiance', label: 'Ruby Radiance', colour: '#9B111E', image: '/products/ruby-radiance.png' },
 ]
 
 const FRAGRANCES = [
