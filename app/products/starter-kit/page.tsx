@@ -305,10 +305,10 @@ export default function StarterKitPage() {
                       className={`shrink-0 w-16 flex flex-col items-center gap-1.5 ${style ? '' : 'opacity-80'}`}
                     >
                       <div
-                        className={`w-16 h-16 rounded-2xl border-2 flex items-center justify-center overflow-hidden transition-all ${
+                        className={`w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden transition-all ${
                           style
-                            ? 'border-charcoal'
-                            : 'border-dashed border-mocha/40'
+                            ? 'border border-[#b4cbe6]'
+                            : 'border-2 border-dashed border-mocha/40'
                         }`}
                         style={style ? { backgroundColor: style.colour } : {}}
                       >

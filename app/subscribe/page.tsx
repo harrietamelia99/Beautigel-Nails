@@ -368,8 +368,8 @@ export default function SubscribePage() {
                   return (
                     <div key={i} className="shrink-0 w-14 flex flex-col items-center gap-1.5">
                       <div
-                        className={`w-14 h-14 rounded-xl border-2 flex items-center justify-center overflow-hidden transition-all ${
-                          style ? 'border-charcoal' : 'border-dashed border-mocha/40'
+                        className={`w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden transition-all ${
+                          style ? 'border border-[#b4cbe6]' : 'border-2 border-dashed border-mocha/40'
                         }`}
                         style={style ? { backgroundColor: style.colour } : {}}
                       >
