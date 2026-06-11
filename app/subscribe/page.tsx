@@ -420,11 +420,6 @@ export default function SubscribePage() {
                   )
                 })}
               </div>
-              <p className="mt-3">
-                <span className="inline-block bg-amber-50 border border-amber-300 text-amber-700 text-xs font-medium px-3 py-1.5 rounded-full">
-                  More colours to be added soon.
-                </span>
-              </p>
             </div>
 
             {/* CTA */}
