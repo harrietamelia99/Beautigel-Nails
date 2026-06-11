@@ -126,6 +126,7 @@ const WRAP_STYLES = [
   { id: 'lavender-love', label: 'Lavender Love', colour: '#B57FD6', image: '/products/lavender-love.png' },
   { id: 'lilac-cloud', label: 'Lilac Cloud', colour: '#C3B1E1', image: '/products/lilac-cloud.png' },
   { id: 'noir-swirl', label: 'Noir Swirl', colour: '#1C1C1C', image: '/products/noir-swirl.png' },
+  { id: 'pastel-opulence', label: 'Pastel Opulence', colour: '#F2C4CE', image: '/products/pastel-opulence.png' },
 ]
 
 const FAQS = [
