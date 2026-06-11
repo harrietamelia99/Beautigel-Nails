@@ -188,10 +188,15 @@ export default function HowToPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <StepsList steps={REMOVE_STEPS} />
             <div>
-              <VideoEmbed title="How to Remove Gel Nail Wraps" placeholder />
-              <p className="text-mocha text-xs text-center mt-3">
-                Removal tutorial video · coming soon
-              </p>
+              <div className="relative w-full rounded-2xl overflow-hidden">
+                <Image
+                  src="/how-to-remove.png"
+                  alt="How to remove gel nail wraps step by step"
+                  width={960}
+                  height={640}
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>
