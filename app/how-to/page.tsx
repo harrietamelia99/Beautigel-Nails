@@ -50,27 +50,27 @@ const APPLY_STEPS = [
 const REMOVE_STEPS = [
   {
     number: '01',
-    title: 'Soak a Cotton Pad',
+    title: 'Apply Cuticle Oil',
     description:
-      'Soak a cotton pad or ball in acetone-based nail polish remover. Avoid non-acetone removers as they won\'t be as effective.',
+      'Apply your Beautigel Cuticle Oil generously around the nail and over the wrap.',
   },
   {
     number: '02',
-    title: 'Wrap Each Nail',
+    title: 'Massage In',
     description:
-      'Place the soaked cotton pad on the nail and wrap with foil or a nail clip. Leave for 10–15 minutes to allow the gel to loosen.',
+      'Gently massage the oil into the wrap and surrounding skin for about one minute. This helps the wrap release naturally.',
   },
   {
     number: '03',
-    title: 'Gently Remove',
+    title: 'Ease Off Gently',
     description:
-      'Gently push the gel off with a cuticle pusher or orange stick. Do not force or peel. If it doesn\'t come away easily, re-soak for a few more minutes.',
+      'Using the wooden wand provided, gently ease the wrap away from the outer edges. Work slowly around the nail — no soaking, no foil, no acetone required.',
   },
   {
     number: '04',
     title: 'Nourish',
     description:
-      'After removal, apply Beautigel Cuticle Oil to replenish moisture and nourish your natural nails. Your nails will be as healthy as ever.',
+      'Apply a little more cuticle oil afterwards to keep your natural nails hydrated and healthy.',
   },
 ]
 

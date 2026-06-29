@@ -67,9 +67,9 @@ const ROWS = [
   },
   {
     attribute: 'Removal',
-    beautigel: 'Gentle peel',
+    beautigel: 'Oil & wooden wand — no acetone',
     nonUV: 'Gentle peel',
-    salon: 'Acetone soak',
+    salon: 'Acetone soak required',
   },
   {
     attribute: 'At-Home Friendly',

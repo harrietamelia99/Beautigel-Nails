@@ -128,9 +128,9 @@ const HOW_TO = {
     { n: '4', title: 'File and Finish', body: 'File away any excess at the tip. Your manicure is complete.' },
   ],
   remove: [
-    { n: '1', title: 'Loosen the Edge', body: 'Gently press an orange stick or cuticle tool beneath the edge of the wrap.' },
-    { n: '2', title: 'Peel Slowly', body: 'Peel back slowly from the cuticle end. Do not force or pull sharply.' },
-    { n: '3', title: 'Nourish', body: 'Apply cuticle oil to nourish and condition the nail after removal.' },
+    { n: '1', title: 'Apply Cuticle Oil', body: 'Apply your Beautigel Cuticle Oil generously over the wrap and massage in for about one minute.' },
+    { n: '2', title: 'Ease Off Gently', body: 'Using the wooden wand provided, gently ease the wrap away from the outer edges. No soaking or acetone needed.' },
+    { n: '3', title: 'Nourish', body: 'Apply a little more cuticle oil to keep your natural nails hydrated and healthy.' },
   ],
 }
 

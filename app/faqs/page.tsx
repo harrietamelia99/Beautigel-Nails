@@ -52,11 +52,11 @@ const CATEGORIES = [
       },
       {
         q: 'How do I remove the gel wraps?',
-        a: 'Soak a cotton pad in acetone-based nail polish remover, place it on the nail, and wrap with foil or a nail clip. Leave for 10–15 minutes to allow the gel to loosen. Gently push off with a cuticle pusher — do not force or peel. Finish with cuticle oil to nourish.',
+        a: 'It\'s simple and gentle — no acetone or soaking required. Apply your Beautigel Cuticle Oil generously over the wrap and massage in for about one minute. Then use the wooden wand provided to gently ease the wrap away from the outer edges. Finish with a little more cuticle oil to nourish your natural nails.',
       },
       {
         q: 'Can I peel the wraps off?',
-        a: 'We do not recommend peeling. Forcing the wraps off can damage the nail surface. Always follow the acetone soak method for safe, gentle removal.',
+        a: 'We do not recommend forcing or pulling the wraps off. Always use the cuticle oil and wooden wand method for safe, gentle removal. The oil loosens the wrap naturally so it eases off without any damage to your natural nail.',
       },
       {
         q: 'How many sets are in one kit?',
