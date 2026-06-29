@@ -4,6 +4,16 @@ import { useEffect } from 'react'
 
 export function SnipcartProvider({ apiKey }: { apiKey: string }) {
   useEffect(() => {
+    // Inject #snipcart div directly into <body> — outside React's control
+    if (!document.getElementById('snipcart')) {
+      const div = document.createElement('div')
+      div.id = 'snipcart'
+      div.setAttribute('data-api-key', apiKey)
+      div.setAttribute('data-currency', 'gbp')
+      div.hidden = true
+      document.body.appendChild(div)
+    }
+
     // Inject Snipcart CSS
     if (!document.getElementById('snipcart-css')) {
       const link = document.createElement('link')
@@ -21,14 +31,8 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
       script.async = true
       document.body.appendChild(script)
     }
-  }, [])
+  }, [apiKey])
 
-  return (
-    <div
-      hidden
-      id="snipcart"
-      data-api-key={apiKey}
-      data-currency="gbp"
-    />
-  )
+  // Render nothing — everything is injected directly into the DOM
+  return null
 }
