@@ -38,11 +38,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB">
-      <head>
-        <link rel="preconnect" href="https://app.snipcart.com" />
-        <link rel="preconnect" href="https://cdn.snipcart.com" />
-        <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css" />
-      </head>
       <body className="bg-ivory text-charcoal antialiased">
         <CartProvider>
           <AnnouncementBar />
@@ -53,7 +48,7 @@ export default function RootLayout({
           <PromoPopup />
         </CartProvider>
 
-        {/* Snipcart */}
+        {/* Snipcart — CSS via globals.css, JS initialised after page is interactive */}
         <div
           hidden
           id="snipcart"
