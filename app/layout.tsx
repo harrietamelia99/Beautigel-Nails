@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import '@/styles/globals.css'
 import { CartProvider } from '@/context/CartContext'
 import { TrustBar } from '@/components/layout/TrustBar'
@@ -30,6 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB">
+      <head>
+        <link rel="preconnect" href="https://app.snipcart.com" />
+        <link rel="preconnect" href="https://cdn.snipcart.com" />
+        <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css" />
+      </head>
       <body className="bg-ivory text-charcoal antialiased">
         <CartProvider>
           <AnnouncementBar />
@@ -39,6 +45,18 @@ export default function RootLayout({
           <CartDrawer />
           <PromoPopup />
         </CartProvider>
+
+        {/* Snipcart */}
+        <div
+          hidden
+          id="snipcart"
+          data-api-key={process.env.NEXT_PUBLIC_SNIPCART_KEY}
+          data-currency="gbp"
+        />
+        <Script
+          src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

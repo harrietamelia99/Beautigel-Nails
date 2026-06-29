@@ -5,8 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Product } from '@/lib/types'
 import { formatPrice } from '@/lib/shopify'
-import { PreOrderBadge, InStockBadge } from './PreOrderBadge'
-import { useCart } from '@/context/CartContext'
+import { PreOrderBadge } from './PreOrderBadge'
 
 interface ProductCardProps {
   product: Product
@@ -14,20 +13,10 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [hovered, setHovered] = useState(false)
-  const [adding, setAdding] = useState(false)
-  const { addToCart } = useCart()
 
   const primaryImage = product.images[0]
   const hoverImage = product.images[1] ?? product.images[0]
   const defaultVariant = product.variants[0]
-
-  const handleQuickAdd = async (e: React.MouseEvent) => {
-    e.preventDefault()
-    if (!defaultVariant || adding) return
-    setAdding(true)
-    await addToCart(defaultVariant.id)
-    setAdding(false)
-  }
 
   return (
     <Link
@@ -87,23 +76,25 @@ export function ProductCard({ product }: ProductCardProps) {
           </p>
         </div>
 
-        {/* Cart button — top right */}
+        {/* Cart button — top right (Snipcart) */}
         <button
-          onClick={handleQuickAdd}
-          disabled={!defaultVariant?.availableForSale || adding}
-          className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-50 opacity-100 scale-100"
+          className="snipcart-add-item absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-50 opacity-100 scale-100"
           style={{ backgroundColor: '#b4cbe6' }}
           aria-label="Add to bag"
+          data-item-id={defaultVariant?.id ?? product.handle}
+          data-item-name={product.title}
+          data-item-price={parseFloat(product.price ?? '0')}
+          data-item-url={`/products/${product.handle}`}
+          data-item-image={product.images[0]?.url ?? ''}
+          data-item-quantity={1}
+          onClick={(e) => e.preventDefault()}
+          disabled={!defaultVariant?.availableForSale}
         >
-          {adding ? (
-            <div className="w-3.5 h-3.5 rounded-full border-2 border-white border-t-transparent animate-spin" />
-          ) : (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#111111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 0 1-8 0" />
-            </svg>
-          )}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#111111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
         </button>
 
         {/* Pre-order badge */}

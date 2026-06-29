@@ -165,6 +165,8 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
     if (match) setSelectedVariantId(match.id)
   }
 
+  const rawPrice = parseFloat(selectedVariant?.price.amount ?? product?.price ?? '0')
+
   const handleAddToCart = async () => {
     if (!selectedVariantId || adding) return
     setAdding(true)
@@ -298,13 +300,19 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
                 <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-mocha hover:text-charcoal transition-colors text-sm">+</button>
               </div>
 
-              {/* Add to cart */}
+              {/* Add to cart — Snipcart */}
               <button
-                onClick={handleAddToCart}
-                disabled={!selectedVariant?.availableForSale || adding}
-                className="btn-primary flex-1 justify-center py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="snipcart-add-item btn-primary flex-1 justify-center py-4 disabled:opacity-50"
+                data-item-id={selectedVariant?.id ?? product.handle}
+                data-item-name={product.title}
+                data-item-price={rawPrice}
+                data-item-url={`/products/${product.handle}`}
+                data-item-image={product.images[0]?.url ?? ''}
+                data-item-quantity={qty}
+                data-item-description={product.description ?? ''}
+                disabled={!selectedVariant?.availableForSale}
               >
-                {adding ? 'Adding...' : product.isPreOrder ? 'Pre-Order Now' : 'Add to Bag'}
+                {product.isPreOrder ? 'Pre-Order Now' : 'Add to Bag'}
               </button>
             </div>
 

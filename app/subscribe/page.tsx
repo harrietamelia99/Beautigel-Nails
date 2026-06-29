@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useCart } from '@/context/CartContext'
 
 const BLUE = '#b4cbe6'
 
@@ -163,6 +162,8 @@ export default function SubscribePage() {
   const [tier, setTier] = useState('signature')
   const [selectedStyles, setSelectedStyles] = useState<string[]>([])
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [checkoutError, setCheckoutError] = useState<string | null>(null)
 
   const activeTier = TIERS.find((t) => t.id === tier)!
   const requiredCount = activeTier.sets
@@ -178,6 +179,25 @@ export default function SubscribePage() {
   const handleTierChange = (id: string) => {
     setTier(id)
     setSelectedStyles([])
+  }
+
+  const handleSubscribe = async () => {
+    if (!isComplete || loading) return
+    setLoading(true)
+    setCheckoutError(null)
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tier, frequency, selectedStyles }),
+      })
+      const data = await res.json() as { url?: string; error?: string }
+      if (!res.ok || !data.url) throw new Error(data.error ?? 'Could not start checkout')
+      window.location.href = data.url
+    } catch (err) {
+      setCheckoutError(err instanceof Error ? err.message : 'Something went wrong')
+      setLoading(false)
+    }
   }
 
   const isComplete = selectedStyles.length === requiredCount
@@ -429,13 +449,25 @@ export default function SubscribePage() {
               </p>
             )}
             <button
-              disabled={!isComplete}
-              className="btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={handleSubscribe}
+              disabled={!isComplete || loading}
+              className="btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {isComplete
-                ? `Subscribe · ${activeTier.subscriberPrice} · ${freqLabel}`
-                : 'Complete Your Selections'}
+              {loading ? (
+                <>
+                  <div className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
+                  Redirecting to checkout...
+                </>
+              ) : isComplete ? (
+                `Subscribe · ${activeTier.subscriberPrice} · ${freqLabel}`
+              ) : (
+                'Complete Your Selections'
+              )}
             </button>
+
+            {checkoutError && (
+              <p className="text-red-500 text-xs text-center mt-2">{checkoutError}</p>
+            )}
 
             <div className="flex items-center justify-center gap-2 mt-4">
               <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />

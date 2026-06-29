@@ -163,12 +163,43 @@ export default function StarterKitPage() {
   const handleAdd = async () => {
     if (!isComplete || adding) return
     setAdding(true)
-    await new Promise((r) => setTimeout(r, 800))
+    const snipcart = (window as unknown as { Snipcart?: { api: { cart: { items: { add: (item: unknown) => Promise<unknown> } } } } }).Snipcart
+    if (snipcart) {
+      const styleNames = selectedStyles
+        .map((id) => WRAP_STYLES.find((s) => s.id === id)?.label ?? id)
+        .join(', ')
+      await snipcart.api.cart.items.add({
+        id: `starter-kit-${activeBundle.id}`,
+        name: `BeautiGel Starter Kit (${activeBundle.label})`,
+        price: parseFloat(activeBundle.price.replace('£', '')),
+        url: '/products/starter-kit',
+        quantity: 1,
+        customFields: [
+          { name: 'Selected Styles', value: styleNames },
+          { name: 'Cuticle Oil Fragrance', value: fragrance ?? '' },
+        ],
+      })
+    }
     setAdding(false)
   }
 
   return (
     <div className="bg-ivory min-h-screen">
+
+      {/* Hidden Snipcart validation buttons (one per bundle option) */}
+      <div aria-hidden="true" style={{ display: 'none' }}>
+        {BUNDLES.map((b) => (
+          <button
+            key={b.id}
+            className="snipcart-add-item"
+            data-item-id={`starter-kit-${b.id}`}
+            data-item-name={`BeautiGel Starter Kit (${b.label})`}
+            data-item-price={parseFloat(b.price.replace('£', ''))}
+            data-item-url="/products/starter-kit"
+            data-item-quantity={1}
+          />
+        ))}
+      </div>
 
       {/* Breadcrumb */}
       <div className="section-padding pt-24 md:pt-32 pb-0">
