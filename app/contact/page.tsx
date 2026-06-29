@@ -11,12 +11,26 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  const [error, setError] = useState<string | null>(null)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 900))
-    setSubmitted(true)
-    setLoading(false)
+    setError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json() as { success?: boolean; error?: string }
+      if (!res.ok || !data.success) throw new Error(data.error ?? 'Failed to send')
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try emailing us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -194,6 +208,10 @@ export default function ContactPage() {
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {error && (
+                  <p className="text-red-500 text-xs text-center">{error}</p>
+                )}
 
                 <p className="text-[10px] text-mocha/60 text-center">
                   By submitting this form you agree to our{' '}
