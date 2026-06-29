@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import '@/styles/globals.css'
 import { CartProvider } from '@/context/CartContext'
 import { TrustBar } from '@/components/layout/TrustBar'
@@ -8,6 +7,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { CartDrawer } from '@/components/cart/CartDrawer'
 import { PromoPopup } from '@/components/ui/PromoPopup'
+import { SnipcartProvider } from '@/components/SnipcartProvider'
 
 export const metadata: Metadata = {
   title: {
@@ -45,17 +45,7 @@ export default function RootLayout({
           <PromoPopup />
         </CartProvider>
 
-        {/* Snipcart — CSS via globals.css, JS initialised after page is interactive */}
-        <div
-          hidden
-          id="snipcart"
-          data-api-key={process.env.NEXT_PUBLIC_SNIPCART_KEY}
-          data-currency="gbp"
-        />
-        <Script
-          src="https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js"
-          strategy="afterInteractive"
-        />
+        <SnipcartProvider apiKey={process.env.NEXT_PUBLIC_SNIPCART_KEY ?? ''} />
       </body>
     </html>
   )
