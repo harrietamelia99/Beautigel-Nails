@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
+  apiVersion: '2026-06-24.dahlia',
 })
 
-// Disable Next.js body parsing — Stripe needs the raw body to verify the signature
-export const config = { api: { bodyParser: false } }
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   const rawBody = await req.text()
@@ -24,44 +23,26 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Webhook signature mismatch' }, { status: 400 })
   }
 
-  // Handle events
+  const obj = event.data.object as { id?: string; customer?: string; subscription?: string; metadata?: Record<string, string> }
+
   switch (event.type) {
-    case 'checkout.session.completed': {
-      const session = event.data.object as Stripe.CheckoutSession
-      console.log('[stripe-webhook] New subscription checkout completed:', {
-        customer: session.customer,
-        subscription: session.subscription,
-        tier: session.metadata?.tier,
-        frequency: session.metadata?.frequency,
-        styles: session.metadata?.selectedStyles,
+    case 'checkout.session.completed':
+      console.log('[stripe-webhook] Checkout completed:', {
+        customer: obj.customer,
+        subscription: obj.subscription,
+        metadata: obj.metadata,
       })
-      // TODO: save to database / send confirmation email when ready
       break
-    }
-
-    case 'invoice.paid': {
-      const invoice = event.data.object as Stripe.Invoice
-      console.log('[stripe-webhook] Invoice paid — recurring delivery due:', invoice.id)
-      // TODO: trigger fulfilment / dispatch notification
+    case 'invoice.paid':
+      console.log('[stripe-webhook] Invoice paid:', obj.id)
       break
-    }
-
-    case 'invoice.payment_failed': {
-      const invoice = event.data.object as Stripe.Invoice
-      console.warn('[stripe-webhook] Payment failed for invoice:', invoice.id)
-      // TODO: notify customer
+    case 'invoice.payment_failed':
+      console.warn('[stripe-webhook] Payment failed:', obj.id)
       break
-    }
-
-    case 'customer.subscription.deleted': {
-      const sub = event.data.object as Stripe.Subscription
-      console.log('[stripe-webhook] Subscription cancelled:', sub.id)
-      // TODO: update customer record
+    case 'customer.subscription.deleted':
+      console.log('[stripe-webhook] Subscription cancelled:', obj.id)
       break
-    }
-
     default:
-      // Unhandled event types — safe to ignore
       break
   }
 
