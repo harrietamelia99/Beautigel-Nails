@@ -4,14 +4,15 @@ import { useEffect } from 'react'
 
 export function SnipcartProvider({ apiKey }: { apiKey: string }) {
   useEffect(() => {
-    // Inject #snipcart div directly into <body> — outside React's control
-    if (!document.getElementById('snipcart')) {
-      const div = document.createElement('div')
-      div.id = 'snipcart'
-      div.setAttribute('data-api-key', apiKey)
-      div.setAttribute('data-currency', 'gbp')
-      div.hidden = true
-      document.body.appendChild(div)
+    if (!apiKey) return
+
+    // Set SnipcartSettings BEFORE loading the script — this is the modern
+    // recommended approach. Snipcart reads publicApiKey from here and creates
+    // the #snipcart div itself, avoiding any React hydration conflicts.
+    ;(window as unknown as Record<string, unknown>).SnipcartSettings = {
+      publicApiKey: apiKey,
+      loadStrategy: 'on-user-interaction',
+      currency: 'gbp',
     }
 
     // Inject Snipcart CSS
@@ -19,20 +20,21 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
       const link = document.createElement('link')
       link.id = 'snipcart-css'
       link.rel = 'stylesheet'
+      link.type = 'text/css'
       link.href = 'https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css'
-      document.head.appendChild(link)
+      document.head.prepend(link)
     }
 
-    // Inject Snipcart JS
+    // Inject Snipcart JS — the script handles creating #snipcart and wiring
+    // up the API key from window.SnipcartSettings automatically
     if (!document.getElementById('snipcart-js')) {
       const script = document.createElement('script')
       script.id = 'snipcart-js'
       script.src = 'https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js'
       script.async = true
-      document.body.appendChild(script)
+      document.head.appendChild(script)
     }
   }, [apiKey])
 
-  // Render nothing — everything is injected directly into the DOM
   return null
 }
