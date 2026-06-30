@@ -11,7 +11,6 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
     // the #snipcart div itself, avoiding any React hydration conflicts.
     ;(window as unknown as Record<string, unknown>).SnipcartSettings = {
       publicApiKey: apiKey,
-      loadStrategy: 'on-user-interaction',
       currency: 'gbp',
     }
 
