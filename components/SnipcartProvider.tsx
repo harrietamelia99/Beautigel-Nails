@@ -5,43 +5,21 @@ import { useEffect } from 'react'
 export function SnipcartProvider({ apiKey }: { apiKey: string }) {
   useEffect(() => {
     if (!apiKey) return
+    // Avoid double-injection on hot reloads
+    if (document.getElementById('snipcart-settings')) return
 
-    // Set SnipcartSettings (modern approach — read by snipcart.js on init)
-    ;(window as unknown as Record<string, unknown>).SnipcartSettings = {
-      publicApiKey: apiKey,
-      currency: 'gbp',
-    }
-
-    // Create #snipcart div with data-api-key (classic approach — also required
-    // by snipcart.js to locate the config on load)
-    if (!document.getElementById('snipcart')) {
-      const div = document.createElement('div')
-      div.id = 'snipcart'
-      div.setAttribute('data-api-key', apiKey)
-      div.setAttribute('data-currency', 'gbp')
-      div.setAttribute('hidden', 'true')
-      document.body.appendChild(div)
-    }
-
-    // Inject Snipcart CSS
-    if (!document.getElementById('snipcart-css')) {
-      const link = document.createElement('link')
-      link.id = 'snipcart-css'
-      link.rel = 'stylesheet'
-      link.type = 'text/css'
-      link.href = 'https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.css'
-      document.head.prepend(link)
-    }
-
-    // Inject Snipcart JS last — it reads both window.SnipcartSettings
-    // and #snipcart[data-api-key] on startup
-    if (!document.getElementById('snipcart-js')) {
-      const script = document.createElement('script')
-      script.id = 'snipcart-js'
-      script.src = 'https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js'
-      script.async = true
-      document.body.appendChild(script)
-    }
+    // Inject the SnipcartSettings config script first
+    const configScript = document.createElement('script')
+    configScript.id = 'snipcart-settings'
+    configScript.textContent = `
+      window.SnipcartSettings = {
+        publicApiKey: '${apiKey}',
+        loadStrategy: 'on-user-interaction',
+        currency: 'gbp',
+      };
+      (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'+window.SnipcartSettings.protocol+'://'+window.SnipcartSettings.domain+'"][src$="snipcart.js"]'),n=document.querySelector('link[href^="'+window.SnipcartSettings.protocol+'://'+window.SnipcartSettings.domain+'"][href$="snipcart.css"]');e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=window.SnipcartSettings.protocol+"://"+window.SnipcartSettings.domain+"/themes/v"+window.SnipcartSettings.version+"/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=window.SnipcartSettings.protocol+"://"+window.SnipcartSettings.domain+"/themes/v"+window.SnipcartSettings.version+"/default/snipcart.css",t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    `
+    document.head.appendChild(configScript)
   }, [apiKey])
 
   return null
