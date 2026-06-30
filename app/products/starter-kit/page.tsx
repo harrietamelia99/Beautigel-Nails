@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useCart } from '@/context/CartContext'
 const BLUE = '#b4cbe6'
 
 const BUNDLES = [
@@ -140,7 +139,6 @@ export default function StarterKitPage() {
   const [fragrance, setFragrance] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
   const [howToTab, setHowToTab] = useState<'apply' | 'remove'>('apply')
-  const { addToCart } = useCart()
 
   const activeBundle = BUNDLES.find((b) => b.id === selectedBundle)!
   const requiredCount = activeBundle.count

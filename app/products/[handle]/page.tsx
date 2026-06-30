@@ -11,7 +11,6 @@ import { PreOrderBadge } from '@/components/product/PreOrderBadge'
 import { ReviewsSection } from '@/components/product/ReviewsSection'
 import { ProductCard } from '@/components/product/ProductCard'
 import { NailFormulaSection } from '@/components/sections/NailFormulaSection'
-import { useCart } from '@/context/CartContext'
 
 const BLUE = '#b4cbe6'
 
@@ -121,9 +120,7 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null)
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({})
   const [activeImage, setActiveImage] = useState(0)
-  const [adding, setAdding] = useState(false)
   const [qty, setQty] = useState(1)
-  const { addToCart } = useCart()
 
   useEffect(() => {
     getProductByHandle(params.handle).then((p) => {
@@ -166,13 +163,6 @@ export default function ProductPage({ params }: { params: { handle: string } }) 
   }
 
   const rawPrice = parseFloat(selectedVariant?.price.amount ?? product?.price ?? '0')
-
-  const handleAddToCart = async () => {
-    if (!selectedVariantId || adding) return
-    setAdding(true)
-    for (let i = 0; i < qty; i++) await addToCart(selectedVariantId)
-    setAdding(false)
-  }
 
   return (
     <div className="bg-ivory min-h-screen">
