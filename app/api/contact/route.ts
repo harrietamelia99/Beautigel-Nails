@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const TO_EMAIL = 'customerservice@beautigelnails.com'
-const FROM_EMAIL = 'Beautigel Nails <noreply@beautigelnails.com>'
+const FROM_EMAIL = 'Beautigel Nails <noreply@beautigelnails.uk>'
 
 export async function POST(req: NextRequest) {
   try {
