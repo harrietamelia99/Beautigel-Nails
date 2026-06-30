@@ -6,12 +6,21 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
   useEffect(() => {
     if (!apiKey) return
 
-    // Set SnipcartSettings BEFORE loading the script — this is the modern
-    // recommended approach. Snipcart reads publicApiKey from here and creates
-    // the #snipcart div itself, avoiding any React hydration conflicts.
+    // Set SnipcartSettings (modern approach — read by snipcart.js on init)
     ;(window as unknown as Record<string, unknown>).SnipcartSettings = {
       publicApiKey: apiKey,
       currency: 'gbp',
+    }
+
+    // Create #snipcart div with data-api-key (classic approach — also required
+    // by snipcart.js to locate the config on load)
+    if (!document.getElementById('snipcart')) {
+      const div = document.createElement('div')
+      div.id = 'snipcart'
+      div.setAttribute('data-api-key', apiKey)
+      div.setAttribute('data-currency', 'gbp')
+      div.setAttribute('hidden', 'true')
+      document.body.appendChild(div)
     }
 
     // Inject Snipcart CSS
@@ -24,14 +33,14 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
       document.head.prepend(link)
     }
 
-    // Inject Snipcart JS — the script handles creating #snipcart and wiring
-    // up the API key from window.SnipcartSettings automatically
+    // Inject Snipcart JS last — it reads both window.SnipcartSettings
+    // and #snipcart[data-api-key] on startup
     if (!document.getElementById('snipcart-js')) {
       const script = document.createElement('script')
       script.id = 'snipcart-js'
       script.src = 'https://cdn.snipcart.com/themes/v3.7.3/default/snipcart.js'
       script.async = true
-      document.head.appendChild(script)
+      document.body.appendChild(script)
     }
   }, [apiKey])
 
