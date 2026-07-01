@@ -25,6 +25,9 @@ export function SnipcartCart() {
   const [isOpen, setIsOpen] = useState(false)
   const [items, setItems] = useState<CartItem[]>([])
   const [total, setTotal] = useState(0)
+  const [promoCode, setPromoCode] = useState('')
+  const [promoApplied, setPromoApplied] = useState(false)
+  const [promoError, setPromoError] = useState('')
 
   const syncCart = useCallback(() => {
     if (typeof window === 'undefined' || !window.Snipcart) return
@@ -76,6 +79,18 @@ export function SnipcartCart() {
       window.Snipcart.api.items.update({ uniqueId, quantity: qty })
     }
     setTimeout(syncCart, 300)
+  }
+
+  const applyPromo = async () => {
+    if (!promoCode.trim() || !window.Snipcart) return
+    try {
+      await window.Snipcart.api.cart.applyDiscount(promoCode.trim().toUpperCase())
+      setPromoApplied(true)
+      setPromoError('')
+      setTimeout(syncCart, 400)
+    } catch {
+      setPromoError('Invalid code — please try again.')
+    }
   }
 
   const handleCheckout = () => {
@@ -181,16 +196,51 @@ export function SnipcartCart() {
             {/* Footer */}
             {items.length > 0 && (
               <div className="px-6 py-6 border-t border-nude bg-ivory">
+                {/* Shipping note */}
                 <div className="flex items-center gap-2 mb-4 text-xs text-mocha">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 shrink-0">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                   <span>Free UK shipping on orders over £35</span>
                 </div>
+
+                {/* Promo code */}
+                {promoApplied ? (
+                  <div className="flex items-center gap-2 text-xs text-charcoal mb-4 bg-nude rounded-full px-4 py-2.5">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#b4cbe6"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span className="uppercase tracking-widest font-medium">{promoCode.toUpperCase()}</span>
+                    <span className="text-mocha normal-case tracking-normal font-normal ml-1">applied</span>
+                  </div>
+                ) : (
+                  <div className="mb-4">
+                    <div className="flex gap-0">
+                      <input
+                        type="text"
+                        value={promoCode}
+                        onChange={(e) => { setPromoCode(e.target.value); setPromoError('') }}
+                        onKeyDown={(e) => e.key === 'Enter' && applyPromo()}
+                        placeholder="Discount code"
+                        className="flex-1 bg-white border border-nude border-r-0 text-charcoal placeholder:text-mocha px-4 py-2.5 text-xs focus:outline-none focus:border-charcoal transition-colors rounded-l-full"
+                      />
+                      <button
+                        type="button"
+                        onClick={applyPromo}
+                        className="text-charcoal text-[10px] tracking-widest uppercase font-medium px-4 py-2.5 rounded-r-full border border-nude border-l-0 bg-white hover:bg-nude transition-colors shrink-0"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                    {promoError && <p className="text-[10px] text-red-500 mt-1.5 pl-1">{promoError}</p>}
+                  </div>
+                )}
+
+                {/* Total */}
                 <div className="flex items-center justify-between mb-5">
                   <span className="font-sans text-xs tracking-widest uppercase text-charcoal">Total</span>
                   <span className="text-base font-medium text-charcoal">£{total.toFixed(2)}</span>
                 </div>
+
+                {/* Checkout */}
                 <button onClick={handleCheckout} className="btn-primary w-full justify-center text-sm py-4">
                   Checkout
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
