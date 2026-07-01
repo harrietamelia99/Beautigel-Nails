@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
-import { CartProvider } from '@/context/CartContext'
 import { TrustBar } from '@/components/layout/TrustBar'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { CartDrawer } from '@/components/cart/CartDrawer'
 import { PromoPopup } from '@/components/ui/PromoPopup'
 import { SnipcartProvider } from '@/components/SnipcartProvider'
 
@@ -39,14 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body className="bg-ivory text-charcoal antialiased">
-        <CartProvider>
-          <AnnouncementBar />
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <CartDrawer />
-          <PromoPopup />
-        </CartProvider>
+        <AnnouncementBar />
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
+        <PromoPopup />
 
         <SnipcartProvider apiKey={process.env.NEXT_PUBLIC_SNIPCART_KEY ?? ''} />
       </body>

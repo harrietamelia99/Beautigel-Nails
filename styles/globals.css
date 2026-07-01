@@ -112,3 +112,8 @@
   0% { opacity: 0; transform: scale(0.97); }
   100% { opacity: 1; transform: scale(1); }
 }
+
+/* Show Snipcart item count badge only when it has content */
+.snipcart-items-count:not(:empty) {
+  display: flex !important;
+}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useCart } from '@/context/CartContext'
 import { Logo } from './Logo'
 
 const NAV_LINKS = [
@@ -15,7 +14,6 @@ const NAV_LINKS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const { openCart, totalQuantity } = useCart()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -89,17 +87,14 @@ export function Navbar() {
             >
               <SearchIcon />
             </button>
+            {/* snipcart-checkout class tells Snipcart to open the cart on click */}
             <button
-              onClick={openCart}
-              aria-label={`Cart (${totalQuantity})`}
-              className="relative text-charcoal hover:text-blue-accent transition-colors"
+              className="snipcart-checkout relative text-charcoal hover:text-blue-accent transition-colors"
+              aria-label="Open bag"
             >
               <BagIcon />
-              {totalQuantity > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-blue-accent text-charcoal text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-medium">
-                  {totalQuantity}
-                </span>
-              )}
+              {/* snipcart-items-count is auto-populated by Snipcart with the item count */}
+              <span className="snipcart-items-count absolute -top-1.5 -right-1.5 bg-blue-accent text-charcoal text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-medium hidden" />
             </button>
           </div>
         </nav>
