@@ -20,12 +20,13 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
     `
     document.head.appendChild(configScript)
 
-    // Beautigel brand overrides.
-    // Snipcart renders its UI as .snipcart-checkout at the document root,
-    // NOT inside #snipcart, so selectors must target that class directly.
-    const style = document.createElement('style')
-    style.id = 'snipcart-brand-overrides'
-    style.textContent = `
+    // Inject brand overrides after Snipcart is ready so our styles
+    // always load after Snipcart's own CSS and win the cascade.
+    const applyBrandStyles = () => {
+      if (document.getElementById('snipcart-brand-overrides')) return
+      const style = document.createElement('style')
+      style.id = 'snipcart-brand-overrides'
+      style.textContent = `
       /* ── Global font & base ── */
       .snipcart-checkout,
       .snipcart-checkout * {
@@ -168,8 +169,14 @@ export function SnipcartProvider({ apiKey }: { apiKey: string }) {
       .snipcart-checkout .snipcart-item-line__body {
         display: none !important;
       }
-    `
-    document.head.appendChild(style)
+      `
+      document.head.appendChild(style)
+    }
+
+    // Apply immediately in case Snipcart already loaded, and also on ready
+    document.addEventListener('snipcart.ready', applyBrandStyles)
+    // Fallback: apply after a short delay to catch cases where event already fired
+    setTimeout(applyBrandStyles, 3000)
   }, [apiKey])
 
   return null
