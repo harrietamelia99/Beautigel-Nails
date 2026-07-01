@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -28,38 +28,54 @@ export function SnipcartCart() {
   const [promoCode, setPromoCode] = useState('')
   const [promoApplied, setPromoApplied] = useState(false)
   const [promoError, setPromoError] = useState('')
+  const prevCountRef = useRef(0)
 
   const syncCart = useCallback(() => {
-    if (typeof window === 'undefined' || !window.Snipcart) return
+    if (typeof window === 'undefined' || !window.Snipcart?.store) return
     try {
       const state = window.Snipcart.store.getState()
       const cartItems: CartItem[] = state.cart?.items?.items ?? []
+      const newCount: number = state.cart?.items?.count ?? cartItems.length
       setItems(cartItems)
       setTotal(state.cart?.total ?? 0)
+
+      // Auto-open drawer whenever items are added
+      if (newCount > prevCountRef.current) {
+        setIsOpen(true)
+      }
+      prevCountRef.current = newCount
     } catch {}
   }, [])
 
   useEffect(() => {
-    const onReady = () => {
+    const setup = () => {
+      if (!window.Snipcart?.store) return
+
       syncCart()
+
+      // Subscribe to every store change so qty/total stays live
       window.Snipcart.store.subscribe(syncCart)
 
-      // Intercept Snipcart's native cart open — show our drawer instead
-      const originalOpen = window.Snipcart.api.theme.cart.open.bind(
-        window.Snipcart.api.theme.cart
-      )
-      window._snipcartOriginalOpen = originalOpen
-      window.Snipcart.api.theme.cart.open = () => {
-        syncCart()
-        setIsOpen(true)
+      // Save the original cart.open once, then replace it with our drawer
+      if (!window._snipcartOriginalOpen) {
+        window._snipcartOriginalOpen = window.Snipcart.api.theme.cart.open.bind(
+          window.Snipcart.api.theme.cart
+        )
       }
+      window.Snipcart.api.theme.cart.open = () => { syncCart(); setIsOpen(true) }
+    }
+
+    // Snipcart may already be initialised when this component mounts
+    if (window.Snipcart?.store) {
+      setup()
+    } else {
+      document.addEventListener('snipcart.ready', setup, { once: true })
     }
 
     const onOpen = () => { syncCart(); setIsOpen(true) }
-    document.addEventListener('snipcart.ready', onReady)
     document.addEventListener('beautigel:openCart', onOpen)
+
     return () => {
-      document.removeEventListener('snipcart.ready', onReady)
       document.removeEventListener('beautigel:openCart', onOpen)
     }
   }, [syncCart])
@@ -94,9 +110,22 @@ export function SnipcartCart() {
   }
 
   const handleCheckout = () => {
+    if (!window.Snipcart) return
     close()
-    // Use Snipcart's original open to go straight to checkout
-    setTimeout(() => window._snipcartOriginalOpen?.(), 300)
+    setTimeout(() => {
+      // Temporarily restore the original so Snipcart's checkout modal opens
+      const ourIntercept = window.Snipcart.api.theme.cart.open
+      if (window._snipcartOriginalOpen) {
+        window.Snipcart.api.theme.cart.open = window._snipcartOriginalOpen
+      }
+      window.Snipcart.api.theme.cart.open()
+      // Re-apply our intercept after the checkout modal has launched
+      setTimeout(() => {
+        if (window.Snipcart) {
+          window.Snipcart.api.theme.cart.open = ourIntercept
+        }
+      }, 400)
+    }, 300)
   }
 
   const totalQty = items.reduce((s, i) => s + i.quantity, 0)
