@@ -126,13 +126,9 @@ export function SnipcartCart() {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-nude">
               <div>
-                <h2 className="font-sans text-xs tracking-widest uppercase text-charcoal">
-                  Your Bag
-                </h2>
+                <h2 className="section-heading text-base text-charcoal">Your Bag</h2>
                 {totalQty > 0 && (
-                  <p className="text-mocha text-xs mt-0.5">
-                    {totalQty} {totalQty === 1 ? 'item' : 'items'}
-                  </p>
+                  <p className="label-text mt-0.5">{totalQty} {totalQty === 1 ? 'item' : 'items'}</p>
                 )}
               </div>
               <button onClick={close} aria-label="Close cart" className="text-mocha hover:text-charcoal transition-colors">
@@ -151,7 +147,7 @@ export function SnipcartCart() {
                     <line x1="3" y1="6" x2="21" y2="6"/>
                     <path d="M16 10a4 4 0 0 1-8 0"/>
                   </svg>
-                  <p className="font-sans text-xs tracking-widest uppercase text-charcoal mb-2">Your bag is empty</p>
+                  <p className="label-text text-charcoal mb-2">Your bag is empty</p>
                   <p className="text-mocha text-xs mb-8">Discover our range of luxury gel nail wraps.</p>
                   <Link href="/products" onClick={close} className="btn-primary text-xs">Shop Now</Link>
                 </div>
@@ -167,7 +163,7 @@ export function SnipcartCart() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <h3 className="font-sans text-xs tracking-wider uppercase text-charcoal leading-snug">{item.name}</h3>
+                          <h3 className="label-text text-charcoal leading-snug normal-case tracking-wide">{item.name}</h3>
                           <button
                             onClick={() => updateQty(item.uniqueId, 0)}
                             aria-label="Remove"
@@ -236,7 +232,7 @@ export function SnipcartCart() {
 
                 {/* Total */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className="font-sans text-xs tracking-widest uppercase text-charcoal">Total</span>
+                  <span className="label-text text-charcoal">Total</span>
                   <span className="text-base font-medium text-charcoal">£{total.toFixed(2)}</span>
                 </div>
 
