@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
+import { CartProvider } from '@/context/CartContext'
 import { TrustBar } from '@/components/layout/TrustBar'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 import { Navbar } from '@/components/layout/Navbar'
@@ -37,11 +38,13 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body className="bg-ivory text-charcoal antialiased">
-        <AnnouncementBar />
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <PromoPopup />
+        <CartProvider>
+          <AnnouncementBar />
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <PromoPopup />
+        </CartProvider>
 
         <SnipcartProvider apiKey={process.env.NEXT_PUBLIC_SNIPCART_KEY ?? ''} />
       </body>

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useCart } from '@/context/CartContext'
 const BLUE = '#b4cbe6'
 
 const FRAGRANCES = [
@@ -190,15 +189,6 @@ const VIDEO_CLIPS = [
 export default function CuticleOilPage() {
   const [fragrance, setFragrance] = useState<string | null>(null)
   const [ingredientsOpen, setIngredientsOpen] = useState(false)
-  const [adding, setAdding] = useState(false)
-  const { addToCart } = useCart()
-
-  const handleAdd = async () => {
-    if (!fragrance || adding) return
-    setAdding(true)
-    await new Promise((r) => setTimeout(r, 800))
-    setAdding(false)
-  }
 
   return (
     <div className="bg-ivory min-h-screen">
@@ -285,13 +275,21 @@ export default function CuticleOilPage() {
               </div>
             </div>
 
-            {/* CTA */}
+            {/* CTA — Snipcart add to bag */}
             <button
-              onClick={handleAdd}
-              disabled={!fragrance || adding}
-              className="btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed mb-4"
+              className="snipcart-add-item btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed mb-4"
+              data-item-id="cuticle-oil"
+              data-item-name="Nourishing Cuticle Oil"
+              data-item-price="8.99"
+              data-item-url="/products/cuticle-oil"
+              data-item-description="A daily cuticle and nail oil enriched with grapeseed oil, keratin, amino acids and vitamins."
+              data-item-quantity={1}
+              data-item-custom1-name="Fragrance"
+              data-item-custom1-value={fragrance ?? ''}
+              data-item-custom1-required="true"
+              disabled={!fragrance}
             >
-              {adding ? 'Adding...' : fragrance ? 'Add to Bag' : 'Select a Fragrance'}
+              {fragrance ? 'Add to Bag' : 'Select a Fragrance'}
             </button>
 
             {/* Quick benefits */}
