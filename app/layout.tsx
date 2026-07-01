@@ -7,6 +7,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { PromoPopup } from '@/components/ui/PromoPopup'
 import { SnipcartProvider } from '@/components/SnipcartProvider'
+import { SnipcartCart } from '@/components/cart/SnipcartCart'
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +45,7 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
           <PromoPopup />
+          <SnipcartCart />
         </CartProvider>
 
         <SnipcartProvider apiKey={process.env.NEXT_PUBLIC_SNIPCART_KEY ?? ''} />

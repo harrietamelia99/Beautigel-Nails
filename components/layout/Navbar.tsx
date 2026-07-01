@@ -94,13 +94,12 @@ export function Navbar() {
             >
               <SearchIcon />
             </button>
-            {/* snipcart-checkout class tells Snipcart to open the cart on click */}
             <button
-              className="snipcart-checkout relative text-charcoal hover:text-blue-accent transition-colors"
+              onClick={() => document.dispatchEvent(new CustomEvent('beautigel:openCart'))}
               aria-label="Open bag"
+              className="relative text-charcoal hover:text-blue-accent transition-colors"
             >
               <BagIcon />
-              {/* snipcart-items-count is auto-populated by Snipcart with the item count */}
               <span className="snipcart-items-count absolute -top-1.5 -right-1.5 bg-blue-accent text-charcoal text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-medium hidden" />
             </button>
           </div>
