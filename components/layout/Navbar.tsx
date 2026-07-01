@@ -11,6 +11,12 @@ const NAV_LINKS = [
   { label: 'About', href: '/about' },
 ]
 
+function closeSnipcart() {
+  // Close the Snipcart cart modal if it is open
+  const overlay = document.querySelector<HTMLElement>('.snipcart-modal__overlay')
+  if (overlay) overlay.click()
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,6 +41,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={closeSnipcart}
                 className="text-[11px] tracking-widest uppercase text-charcoal hover:text-blue-accent transition-colors font-medium"
               >
                 {link.label}
@@ -52,7 +59,7 @@ export function Navbar() {
           </button>
 
           {/* Centre — Logo */}
-          <Link href="/" className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
+          <Link href="/" onClick={closeSnipcart} className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
             <Logo className="h-9 w-auto" />
           </Link>
 
@@ -119,7 +126,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => { setMenuOpen(false); closeSnipcart() }}
                 className="block text-lg tracking-widest uppercase text-charcoal hover:text-blue-accent transition-colors border-b border-nude py-5"
               >
                 {link.label}
