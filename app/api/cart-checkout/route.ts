@@ -29,11 +29,14 @@ export async function POST(req: NextRequest) {
           currency: 'gbp',
           product_data: {
             name: item.name,
-            ...(item.image ? { images: [item.image] } : {}),
+            // Stripe only accepts public HTTPS image URLs ≤2048 chars
+            ...(item.image && item.image.startsWith('https://') && item.image.length <= 2048
+              ? { images: [item.image] }
+              : {}),
           },
-          unit_amount: Math.round(item.price * 100),
+          unit_amount: Math.max(1, Math.round(item.price * 100)),
         },
-        quantity: item.quantity,
+        quantity: Math.max(1, item.quantity),
       })),
       allow_promotion_codes: true,
       billing_address_collection: 'required',
@@ -66,8 +69,10 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ url: session.url })
-  } catch (err) {
+  } catch (err: any) {
     console.error('[cart-checkout]', err)
-    return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 })
+    // Return the real Stripe error message so we can see what's wrong
+    const message = err?.message ?? 'Failed to create checkout session'
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }

@@ -131,15 +131,6 @@ export function SnipcartCart() {
       } catch {}
     }
 
-    // Temporary diagnostic — remove after debugging
-    alert(
-      `DEBUG:\n` +
-      `React items: ${items.length}\n` +
-      `Store items: ${checkoutItems.length}\n` +
-      `Snipcart loaded: ${!!window.Snipcart}\n` +
-      `isCheckingOut: ${isCheckingOut}`
-    )
-
     if (checkoutItems.length === 0) {
       setCheckoutError('Your bag is empty — add something to continue.')
       return
