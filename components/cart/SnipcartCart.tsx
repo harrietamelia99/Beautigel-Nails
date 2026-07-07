@@ -224,8 +224,9 @@ export function SnipcartCart() {
                       <div className="w-20 h-24 bg-nude rounded-lg overflow-hidden shrink-0 relative">
                         {(() => {
                           const src = item.image || item.imageUrl
-                          return src && src.startsWith('https://')
-                            ? <Image src={src} alt={item.name} fill sizes="80px" className="object-cover" unoptimized />
+                          const valid = src && (src.startsWith('https://') || src.startsWith('http://') || src.startsWith('/'))
+                          return valid
+                            ? <Image src={src!} alt={item.name} fill sizes="80px" className="object-cover" unoptimized />
                             : <div className="w-full h-full flex items-center justify-center text-2xl">💅</div>
                         })()}
                       </div>
