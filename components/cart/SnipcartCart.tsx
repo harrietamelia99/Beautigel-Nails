@@ -100,9 +100,9 @@ export function SnipcartCart() {
   const updateQty = (uniqueId: string, qty: number) => {
     if (!window.Snipcart) return
     if (qty <= 0) {
-      window.Snipcart.api.items.remove(uniqueId)
+      window.Snipcart.api.cart.items.remove(uniqueId)
     } else {
-      window.Snipcart.api.items.update({ uniqueId, quantity: qty })
+      window.Snipcart.api.cart.items.update({ uniqueId, quantity: qty })
     }
     setTimeout(syncCart, 300)
   }
