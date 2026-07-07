@@ -28,6 +28,7 @@ export function SnipcartCart() {
   const [promoCode, setPromoCode] = useState('')
   const [promoApplied, setPromoApplied] = useState(false)
   const [promoError, setPromoError] = useState('')
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
   const prevCountRef = useRef(0)
 
   const syncCart = useCallback(() => {
@@ -109,23 +110,24 @@ export function SnipcartCart() {
     }
   }
 
-  const handleCheckout = () => {
-    if (!window.Snipcart) return
-    close()
-    setTimeout(() => {
-      // Temporarily restore the original so Snipcart's checkout modal opens
-      const ourIntercept = window.Snipcart.api.theme.cart.open
-      if (window._snipcartOriginalOpen) {
-        window.Snipcart.api.theme.cart.open = window._snipcartOriginalOpen
+  const handleCheckout = async () => {
+    if (items.length === 0 || isCheckingOut) return
+    setIsCheckingOut(true)
+    try {
+      const res = await fetch('/api/cart-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        setIsCheckingOut(false)
       }
-      window.Snipcart.api.theme.cart.open()
-      // Re-apply our intercept after the checkout modal has launched
-      setTimeout(() => {
-        if (window.Snipcart) {
-          window.Snipcart.api.theme.cart.open = ourIntercept
-        }
-      }, 400)
-    }, 300)
+    } catch {
+      setIsCheckingOut(false)
+    }
   }
 
   const totalQty = items.reduce((s, i) => s + i.quantity, 0)
@@ -266,11 +268,19 @@ export function SnipcartCart() {
                 </div>
 
                 {/* Checkout */}
-                <button onClick={handleCheckout} className="btn-primary w-full justify-center text-sm py-4">
-                  Checkout
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                <button
+                  onClick={handleCheckout}
+                  disabled={isCheckingOut}
+                  className="btn-primary w-full justify-center text-sm py-4 disabled:opacity-60 disabled:cursor-wait"
+                >
+                  {isCheckingOut ? 'Redirecting…' : (
+                    <>
+                      Checkout
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </>
+                  )}
                 </button>
                 <p className="text-center text-mocha text-[10px] mt-3 tracking-wide">
                   Taxes and shipping calculated at checkout
