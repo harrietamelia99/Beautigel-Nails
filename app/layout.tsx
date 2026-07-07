@@ -17,13 +17,6 @@ export const metadata: Metadata = {
   description:
     'Luxury gel nail wraps designed to give you a polished, salon-effect manicure from the comfort of home. Without the cost, time, or damage of regular salon visits.',
   keywords: ['gel nail wraps', 'nail wraps', 'salon nails at home', 'nail beauty', 'Beautigel'],
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    apple: '/favicon.png',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',

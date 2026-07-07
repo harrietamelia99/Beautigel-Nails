@@ -14,13 +14,34 @@ interface CartItem {
 
 export async function POST(req: NextRequest) {
   try {
-    const { items } = await req.json() as { items: CartItem[] }
+    const { items, promoCode } = await req.json() as { items: CartItem[]; promoCode?: string | null }
 
     if (!items?.length) {
       return NextResponse.json({ error: 'Cart is empty' }, { status: 400 })
     }
 
     const origin = req.headers.get('origin') ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'https://beautigelnails.uk'
+
+    // If a promo code was validated in the cart drawer, look up its Stripe ID
+    // and pre-apply it so the customer doesn't have to enter it again.
+    // Note: Stripe does not allow both `discounts` and `allow_promotion_codes` together.
+    let discountConfig: { discounts: { promotion_code: string }[] } | { allow_promotion_codes: true } =
+      { allow_promotion_codes: true }
+
+    if (promoCode) {
+      try {
+        const promoCodes = await stripe.promotionCodes.list({
+          code: promoCode.trim().toUpperCase(),
+          active: true,
+          limit: 1,
+        })
+        if (promoCodes.data.length > 0) {
+          discountConfig = { discounts: [{ promotion_code: promoCodes.data[0].id }] }
+        }
+      } catch (promoErr) {
+        console.warn('[cart-checkout] Could not look up promo code, falling back to manual entry:', promoErr)
+      }
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
@@ -38,7 +59,7 @@ export async function POST(req: NextRequest) {
         },
         quantity: Math.max(1, item.quantity),
       })),
-      allow_promotion_codes: true,
+      ...discountConfig,
       billing_address_collection: 'required',
       shipping_address_collection: {
         allowed_countries: ['GB'],

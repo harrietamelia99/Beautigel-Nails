@@ -107,16 +107,12 @@ export function SnipcartCart() {
     setTimeout(syncCart, 300)
   }
 
-  const applyPromo = async () => {
-    if (!promoCode.trim() || !window.Snipcart) return
-    try {
-      await window.Snipcart.api.cart.applyDiscount(promoCode.trim().toUpperCase())
-      setPromoApplied(true)
-      setPromoError('')
-      setTimeout(syncCart, 400)
-    } catch {
-      setPromoError('Invalid code — please try again.')
-    }
+  const applyPromo = () => {
+    const code = promoCode.trim().toUpperCase()
+    if (!code) return
+    setPromoCode(code)
+    setPromoApplied(true)
+    setPromoError('')
   }
 
   const handleCheckout = async () => {
@@ -150,7 +146,10 @@ export function SnipcartCart() {
       const res = await fetch('/api/cart-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: stripeItems }),
+        body: JSON.stringify({
+          items: stripeItems,
+          promoCode: promoApplied ? promoCode.toUpperCase() : null,
+        }),
       })
       const data = await res.json()
       if (data.url) {
