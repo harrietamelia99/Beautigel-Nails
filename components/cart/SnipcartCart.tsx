@@ -29,14 +29,21 @@ export function SnipcartCart() {
   const [promoApplied, setPromoApplied] = useState(false)
   const [promoError, setPromoError] = useState('')
   const [isCheckingOut, setIsCheckingOut] = useState(false)
+  const [checkoutError, setCheckoutError] = useState('')
   const prevCountRef = useRef(0)
 
   const syncCart = useCallback(() => {
     if (typeof window === 'undefined' || !window.Snipcart?.store) return
     try {
       const state = window.Snipcart.store.getState()
-      const cartItems: CartItem[] = state.cart?.items?.items ?? []
-      const newCount: number = state.cart?.items?.count ?? cartItems.length
+      // Snipcart v3 may expose items as a nested object OR a flat array
+      const rawItems = state.cart?.items
+      const cartItems: CartItem[] = Array.isArray(rawItems)
+        ? rawItems
+        : (rawItems?.items ?? [])
+      const newCount: number = Array.isArray(rawItems)
+        ? rawItems.length
+        : (rawItems?.count ?? cartItems.length)
       setItems(cartItems)
       setTotal(state.cart?.total ?? 0)
 
@@ -111,21 +118,40 @@ export function SnipcartCart() {
   }
 
   const handleCheckout = async () => {
-    if (items.length === 0 || isCheckingOut) return
+    if (isCheckingOut) return
+    setCheckoutError('')
+
+    // Read items fresh from store at click time as well as from state
+    let checkoutItems = items
+    if (checkoutItems.length === 0 && window.Snipcart?.store) {
+      try {
+        const state = window.Snipcart.store.getState()
+        const rawItems = state.cart?.items
+        checkoutItems = Array.isArray(rawItems) ? rawItems : (rawItems?.items ?? [])
+      } catch {}
+    }
+
+    if (checkoutItems.length === 0) {
+      setCheckoutError('Your bag is empty — add something to continue.')
+      return
+    }
+
     setIsCheckingOut(true)
     try {
       const res = await fetch('/api/cart-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items }),
+        body: JSON.stringify({ items: checkoutItems }),
       })
       const data = await res.json()
       if (data.url) {
         window.location.href = data.url
       } else {
+        setCheckoutError(data.error ?? 'Something went wrong — please try again.')
         setIsCheckingOut(false)
       }
     } catch {
+      setCheckoutError('Could not connect — please check your connection and try again.')
       setIsCheckingOut(false)
     }
   }
@@ -266,6 +292,11 @@ export function SnipcartCart() {
                   <span className="label-text text-charcoal">Total</span>
                   <span className="text-base font-medium text-charcoal">£{total.toFixed(2)}</span>
                 </div>
+
+                {/* Checkout error */}
+                {checkoutError && (
+                  <p className="text-[10px] text-red-500 mb-3 text-center leading-relaxed">{checkoutError}</p>
+                )}
 
                 {/* Checkout */}
                 <button
