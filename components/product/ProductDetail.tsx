@@ -173,7 +173,6 @@ export function ProductDetail({ product }: { product: Product }) {
                 data-item-url={`/products/${product.handle}`}
                 data-item-image={product.images[0]?.url ?? ''}
                 data-item-quantity={qty}
-                data-item-description={product.description ?? ''}
                 disabled={!selectedVariant?.availableForSale}
               >
                 {product.isPreOrder ? 'Pre-Order Now' : 'Add to Bag'}

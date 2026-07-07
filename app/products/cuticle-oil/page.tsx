@@ -282,7 +282,6 @@ export default function CuticleOilPage() {
               data-item-name="Nourishing Cuticle Oil"
               data-item-price="8.99"
               data-item-url="/products/cuticle-oil"
-              data-item-description="A daily cuticle and nail oil enriched with grapeseed oil, keratin, amino acids and vitamins."
               data-item-quantity={1}
               data-item-custom1-name="Fragrance"
               data-item-custom1-value={fragrance ?? ''}
