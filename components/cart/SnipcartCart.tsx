@@ -10,8 +10,10 @@ interface CartItem {
   name: string
   price: number
   quantity: number
-  totalPrice: number
-  image: string | null
+  total?: number       // Snipcart v3 uses `total`
+  totalPrice?: number  // some versions use `totalPrice`
+  image?: string | null
+  imageUrl?: string | null // some Snipcart versions use imageUrl
 }
 
 declare global {
@@ -137,11 +139,18 @@ export function SnipcartCart() {
     }
 
     setIsCheckingOut(true)
+    // Normalise items before sending to Stripe
+    const stripeItems = checkoutItems.map((item) => ({
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      image: item.image || item.imageUrl || null,
+    }))
     try {
       const res = await fetch('/api/cart-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: checkoutItems }),
+        body: JSON.stringify({ items: stripeItems }),
       })
       const data = await res.json()
       if (data.url) {
@@ -213,10 +222,12 @@ export function SnipcartCart() {
                   {items.map((item) => (
                     <div key={item.uniqueId} className="flex gap-4 py-5">
                       <div className="w-20 h-24 bg-nude rounded-lg overflow-hidden shrink-0 relative">
-                        {item.image
-                          ? <Image src={item.image} alt={item.name} fill sizes="80px" className="object-cover" />
-                          : <div className="w-full h-full flex items-center justify-center text-2xl">💅</div>
-                        }
+                        {(() => {
+                          const src = item.image || item.imageUrl
+                          return src && src.startsWith('https://')
+                            ? <Image src={src} alt={item.name} fill sizes="80px" className="object-cover" unoptimized />
+                            : <div className="w-full h-full flex items-center justify-center text-2xl">💅</div>
+                        })()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2 mb-1">
@@ -237,7 +248,9 @@ export function SnipcartCart() {
                             <span className="w-7 text-center text-xs font-medium text-charcoal">{item.quantity}</span>
                             <button onClick={() => updateQty(item.uniqueId, item.quantity + 1)} className="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-nude transition-colors">+</button>
                           </div>
-                          <p className="text-sm font-medium text-charcoal">£{item.totalPrice.toFixed(2)}</p>
+                          <p className="text-sm font-medium text-charcoal">
+                            £{((item.total ?? item.totalPrice ?? item.price * item.quantity) || 0).toFixed(2)}
+                          </p>
                         </div>
                       </div>
                     </div>
