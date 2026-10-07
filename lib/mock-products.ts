@@ -80,7 +80,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'coffee-and-cream-ombre-semi-cured-gel-nail-wrap-kit',
     'Coffee and Cream Ombré Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/coffee-and-cream.png',
     null,
@@ -89,7 +89,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'candy-apple-red-glitter-semi-cured-gel-nail-wrap-kit',
     'Candy Apple Red Glitter Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/candy-apple-red.png',
     null,
@@ -98,7 +98,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'black-french-tip-semi-cured-gel-nail-wrap-kit',
     'Black French Tip Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/black-french-tip.png',
     null,
@@ -107,7 +107,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'cappuccino-semi-cured-gel-nail-wrap-kit',
     'Cappuccino Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/cappuccino.png',
     null,
@@ -116,7 +116,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'cherry-blossom-semi-cured-gel-nail-wrap-kit',
     'Cherry Blossom Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/cherry-blossom.png',
     null,
@@ -125,7 +125,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'whispers-of-fall-semi-cured-gel-nail-wrap-kit',
     'Whispers of Fall Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/whispers-of-fall.png',
     null,
@@ -134,7 +134,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'sugarpink-glitter-bomb-semi-cured-gel-nail-wrap-kit',
     'Sugarpink Glitter Bomb Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/sugarpink-glitter-bomb.png',
     null,
@@ -143,7 +143,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'ruby-radiance-semi-cured-gel-nail-wrap-kit',
     'Ruby Radiance Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/ruby-radiance.png',
     null,
@@ -152,7 +152,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'rose-petal-blush-semi-cured-gel-nail-wrap-kit',
     'Rose Petal Blush Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/rose-petal-blush.png',
     null,
@@ -161,7 +161,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'rainbow-dream-semi-cured-gel-nail-wrap-kit',
     'Rainbow Dream Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/rainbow-dream.png',
     null,
@@ -170,7 +170,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'radiant-rouge-semi-cured-gel-nail-wrap-kit',
     'Radiant Rouge Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/radiant-rouge.png',
     null,
@@ -179,7 +179,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'pastel-opulence-semi-cured-gel-nail-wrap-kit',
     'Pastel Opulence Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/pastel-opulence.png',
     null,
@@ -188,7 +188,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'noir-swirl-semi-cured-gel-nail-wrap-kit',
     'Noir Swirl Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/noir-swirl.png',
     null,
@@ -197,7 +197,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'lilac-cloud-semi-cured-gel-nail-wrap-kit',
     'Lilac Cloud Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/lilac-cloud.png',
     null,
@@ -206,7 +206,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'lavender-love-semi-cured-gel-nail-wrap-kit',
     'Lavender Love Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/lavender-love.png',
     null,
@@ -215,7 +215,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'golden-luxe-semi-cured-gel-nail-wrap-kit',
     'Golden Luxe Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/golden-luxe.png',
     null,
@@ -224,7 +224,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'french-check-affair-semi-cured-gel-nail-wrap-kit',
     'French Check Affair Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/french-check-affair.png',
     null,
@@ -233,7 +233,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'floral-bloom-semi-cured-gel-nail-wrap-kit',
     'Floral Bloom Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/floral-bloom.png',
     null,
@@ -242,7 +242,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'fine-wine-gloss-semi-cured-gel-nail-wrap-kit',
     'Fine Wine Gloss Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/fine-wine-gloss.png',
     null,
@@ -251,7 +251,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'daisy-dream-semi-cured-gel-nail-wrap-kit',
     'Daisy Dream Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/daisy-dream.png',
     null,
@@ -260,7 +260,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'coral-glow-semi-cured-gel-nail-wrap-kit',
     'Coral Glow Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/coral-glow.png',
     null,
@@ -269,7 +269,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'colour-pop-tips-semi-cured-gel-nail-wrap-kit',
     'Colour Pop Tips Semi-Cured Gel Nail Wrap Kit',
-    '13.99',
+    '17.99',
     'Gel Wraps',
     '/products/colour-pop-tips.png',
     null,
@@ -278,7 +278,7 @@ export const MOCK_PRODUCTS: Product[] = [
   makeProduct(
     'cuticle-oil',
     'Nourishing Cuticle Oil',
-    '12.00',
+    '9.99',
     'Cuticle Oil',
     '/products/cuticle-oil.png',
     null,

@@ -233,7 +233,7 @@ export default function CuticleOilPage() {
             </p>
 
             <div className="flex items-baseline gap-3 mb-8">
-              <span className="text-2xl font-light text-charcoal">[PRICE TBC]</span>
+              <span className="text-2xl font-light text-charcoal">£9.99</span>
               <span className="text-[10px] tracking-widest uppercase text-mocha bg-nude px-3 py-1 rounded-full">
                 Vegan · Cruelty-Free
               </span>
@@ -280,7 +280,7 @@ export default function CuticleOilPage() {
               className="snipcart-add-item btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed mb-4"
               data-item-id="cuticle-oil"
               data-item-name="Nourishing Cuticle Oil"
-              data-item-price="8.99"
+              data-item-price="9.99"
               data-item-url="/products/cuticle-oil"
               data-item-quantity={1}
               data-item-custom1-name="Fragrance"
