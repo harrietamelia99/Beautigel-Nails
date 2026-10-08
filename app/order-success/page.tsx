@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import { PurchasePixel } from './PurchasePixel'
 
 export const metadata = { title: 'Order Confirmed — Beautigel Nails London' }
 
 export default function OrderSuccessPage() {
   return (
     <section className="min-h-[70vh] flex items-center justify-center section-padding">
+      {/* Fires Meta Pixel Purchase event client-side */}
+      <PurchasePixel />
+
       <div className="text-center max-w-md">
         {/* Icon */}
         <div className="w-16 h-16 rounded-full bg-nude flex items-center justify-center mx-auto mb-8">

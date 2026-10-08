@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { trackAddToCart, trackInitiateCheckout } from '@/lib/pixel'
 
 interface CartItem {
   uniqueId: string
@@ -49,9 +50,18 @@ export function SnipcartCart() {
       setItems(cartItems)
       setTotal(state.cart?.total ?? 0)
 
-      // Auto-open drawer whenever items are added
+      // Auto-open drawer and fire AddToCart pixel event when items are added
       if (newCount > prevCountRef.current) {
         setIsOpen(true)
+        // Find the newly added item (last in the list) for pixel data
+        const newItem = cartItems[cartItems.length - 1]
+        if (newItem) {
+          trackAddToCart({
+            content_name: newItem.name,
+            content_ids: [newItem.uniqueId],
+            value: newItem.price,
+          })
+        }
       }
       prevCountRef.current = newCount
     } catch {}
@@ -135,6 +145,13 @@ export function SnipcartCart() {
     }
 
     setIsCheckingOut(true)
+
+    // Fire InitiateCheckout pixel event
+    trackInitiateCheckout({
+      num_items: checkoutItems.reduce((s, i) => s + i.quantity, 0),
+      value: checkoutItems.reduce((s, i) => s + (i.total ?? i.price * i.quantity), 0),
+    })
+
     // Normalise items before sending to Stripe
     const stripeItems = checkoutItems.map((item) => ({
       name: item.name,
