@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { PurchasePixel } from './PurchasePixel'
 
 export const metadata = { title: 'Order Confirmed — Beautigel Nails London' }
@@ -6,8 +7,10 @@ export const metadata = { title: 'Order Confirmed — Beautigel Nails London' }
 export default function OrderSuccessPage() {
   return (
     <section className="min-h-[70vh] flex items-center justify-center section-padding">
-      {/* Fires Meta Pixel Purchase event client-side */}
-      <PurchasePixel />
+      {/* Fires Meta Pixel Purchase event — Suspense required for useSearchParams in Next.js 14 */}
+      <Suspense fallback={null}>
+        <PurchasePixel />
+      </Suspense>
 
       <div className="text-center max-w-md">
         {/* Icon */}
